@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../ASSETS/dist/output.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1 class="text-red-600">Bonjour</h1>
+    
+</body>
+</html>

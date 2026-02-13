@@ -1,0 +1,15 @@
+# Dépendances (le plus important)
+node_modules/
+
+# Fichiers générés par Tailwind
+# On ignore le dossier dist car il est créé automatiquement à partir du dossier src
+ASSETS/dist/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
