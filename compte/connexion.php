@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +7,15 @@ session_start();
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- texte de bienvenue et logo -->
     <p class="text-center text-lg font-extrabold mt-10">Connexion</p>
     <img src="../IMG/Logo_png.png" class="w-6/12 m-auto" alt="">
+
+    <!-- Formulaire de connexion -->
     <form class="flex flex-col justify-center items-center" action="authentification.php" method="POST">
 
+        <!-- Choix collaborateur ou entreprise -->
         <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl mb-8">
     
             <label class="flex-1 cursor-pointer">
@@ -33,22 +34,28 @@ session_start();
         
         </div>
 
-
+        <!-- input Email -->
         <div class="w-11/12 flex flex-col mb-5">
             <label for="email" class="mb-1">Email professionel</label>
             <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="nom@entreprise.com" required>
         </div>
 
+        <!-- input Mot de passe -->
         <div class="w-11/12 flex flex-col mb-4">
             <label for="password" class="mb-1">Mot de passe</label>
             <input class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" placeholder="••••••••••••••••" required>
         </div>
+
+        <!-- Mot de passe oublié ? -->
         <div class="w-11/12">
             <a href="" class="float-right">Mot de passe oublié ?</a>
         </div>
+
+        <!-- Submit -->
         <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-15">
 
+        <!-- Lien vers la création de compte -->
         <p class="text-center mt-15">Vous n'avez pas de compte ? <a href="">Créez-en un !</a></p>
     </form>
 </body>
-    </html>
+</html>
