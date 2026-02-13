@@ -12,10 +12,10 @@ session_start();
 </head>
 <body>
     <p class="text-center text-lg font-extrabold mt-10">Connexion</p>
-    <img src="../IMG/Logo_png.png" class="w-8/12 m-auto" alt="">
+    <img src="../IMG/Logo_png.png" class="w-6/12 m-auto" alt="">
     <form class="flex flex-col justify-center items-center" action="connexion_login.php" method="POST">
 
-        <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl">
+        <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl mb-8">
     
             <label class="flex-1 cursor-pointer">
                 <input type="radio" name="user_type" value="collaborateur" class="sr-only peer" checked>
@@ -30,24 +30,25 @@ session_start();
                     Entreprise
                 </div>
             </label>
-            
+        
         </div>
 
 
-        <div class="w-11/12 flex flex-col">
-            <label for="email">Email professionel</label>
-            <input class="bg-gray-200 h-10 rounded-lg" type="email" id="email" name="email">
+        <div class="w-11/12 flex flex-col mb-5">
+            <label for="email" class="mb-1">Email professionel</label>
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="nom@entreprise.com">
         </div>
 
-        <div class="w-11/12 flex flex-col">
-            <label for="password">Mot de passe</label>
-            <input class="bg-gray-200 h-10 rounded-lg" type="password" id="password" name="password">
+        <div class="w-11/12 flex flex-col mb-4">
+            <label for="password" class="mb-1">Mot de passe</label>
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" placeholder="••••••••••••••••">
         </div>
-        <a href="" class="">Mot de passe oublié ?</a>
+        <div class="w-11/12">
+            <a href="" class="float-right">Mot de passe oublié ?</a>
+        </div>
+        <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-15">
 
-        <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg">
-
-        <p class="text-center">Vous n'avez pas de compte ? <a href="">Créez-en un !</a></p>
+        <p class="text-center mt-15">Vous n'avez pas de compte ? <a href="">Créez-en un !</a></p>
     </form>
 </body>
 </html>
