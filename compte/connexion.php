@@ -13,7 +13,7 @@ session_start();
 <body>
     <p class="text-center text-lg font-extrabold mt-10">Connexion</p>
     <img src="../IMG/Logo_png.png" class="w-6/12 m-auto" alt="">
-    <form class="flex flex-col justify-center items-center" action="connexion_login.php" method="POST">
+    <form class="flex flex-col justify-center items-center" action="authentification.php" method="POST">
 
         <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl mb-8">
     
@@ -36,12 +36,12 @@ session_start();
 
         <div class="w-11/12 flex flex-col mb-5">
             <label for="email" class="mb-1">Email professionel</label>
-            <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="nom@entreprise.com">
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="nom@entreprise.com" required>
         </div>
 
         <div class="w-11/12 flex flex-col mb-4">
             <label for="password" class="mb-1">Mot de passe</label>
-            <input class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" placeholder="••••••••••••••••">
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" placeholder="••••••••••••••••" required>
         </div>
         <div class="w-11/12">
             <a href="" class="float-right">Mot de passe oublié ?</a>
@@ -51,4 +51,4 @@ session_start();
         <p class="text-center mt-15">Vous n'avez pas de compte ? <a href="">Créez-en un !</a></p>
     </form>
 </body>
-</html>
+    </html>
