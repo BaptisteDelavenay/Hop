@@ -13,7 +13,7 @@ session_start();
 <body>
     <p class="text-center">Connexion</p>
     <img src="../IMG/Logo_png.png" alt="">
-    <form class="flex flex-col justify-center items-center" action="verifConnexion.php" method="POST">
+    <form class="flex flex-col justify-center items-center" action="connexion_login.php" method="POST">
 
         <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl">
     

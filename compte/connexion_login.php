@@ -7,9 +7,9 @@ ini_set("display_errors", 1);
 //Connexion a la base de données
 include("../connexion_bdd.php");
 
-if (isset($_POST["mail"]) && isset($_POST["mdp"])) { // On regarde si les cases mail et mdp sont remplies
-    $Mail = $_POST["mail"];
-    $Mdp = $_POST["mdp"];
+if (isset($_POST["email"]) && isset($_POST["password"])) { // On regarde si les cases mail et mdp sont remplies
+    $Mail = $_POST["email"];
+    $Mdp = $_POST["password"];
 
     $verifUtilisateur = $db->prepare("SELECT * FROM user WHERE Email = :Email"); // on prends l'utilisateur qui correspond avec l'adresse mail dans la BDD
     $verifUtilisateur->execute(array(
@@ -28,25 +28,25 @@ if (isset($_POST["mail"]) && isset($_POST["mdp"])) { // On regarde si les cases 
             $_SESSION['Nom'] = htmlspecialchars($verif["Nom"]);
             $_SESSION['Prenom'] = htmlspecialchars($verif["Prenom"]);
             // header("Location: ../index_2.php");
-            print("ougabouga")
+            print("ougabouga");
             exit;
         } else {
             $_SESSION['flash_error'] = "Mot de passe incorrect.";
             // header("Location: login.php");
-            print("ougaPASbouga")
+            print("ougaPASbouga");
             exit;
         }
 
     } else {
         $_SESSION['flash_error'] = "Adresse e-mail inconnue veuillez créer votre compte.";
         // header("Location: login.php");
-        print("ougaPASbouga")
+        print("ougaPASbouga");
         exit;
     }
 } else {
     $_SESSION['flash_error'] = "Veuillez remplir tous les champs.";
     // header("Location: login.php");
-    print("ougaPASbouga")
+    print("ougaPASbouga");
     exit;
 }
 ?>
