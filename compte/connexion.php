@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1 class="text-yellow-600">Bonjour</h1>
+    <h1 class="text-pink-600">Bonjour</h1>
     
 </body>
 </html>
