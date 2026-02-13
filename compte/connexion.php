@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hop</title>
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 <body>
@@ -52,10 +52,10 @@
         </div>
 
         <!-- Submit -->
-        <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-15">
+        <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-14">
 
         <!-- Lien vers la création de compte -->
-        <p class="text-center mt-15">Vous n'avez pas de compte ? <a href="">Créez-en un !</a></p>
+        <p class="text-center mt-14">Vous n'avez pas de compte ? <a href="inscriptionChoix.php">Créez-en un !</a></p>
     </form>
 </body>
 </html>
