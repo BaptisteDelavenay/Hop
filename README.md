@@ -1,0 +1,1 @@
+commande pour initialiser tailwind : npx tailwindcss -i ./ASSETS/src/input.css -o ./ASSETS/dist/output.css --watch
