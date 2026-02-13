@@ -7,8 +7,6 @@
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 <body>
-
-    <h1 class="text-green-600">Bonjour</h1>
     
 </body>
 </html>
