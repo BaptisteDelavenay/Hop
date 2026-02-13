@@ -11,8 +11,8 @@ session_start();
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 <body>
-    <p class="text-center">Connexion</p>
-    <img src="../IMG/Logo_png.png" alt="">
+    <p class="text-center text-lg font-extrabold mt-10">Connexion</p>
+    <img src="../IMG/Logo_png.png" class="w-8/12 m-auto" alt="">
     <form class="flex flex-col justify-center items-center" action="connexion_login.php" method="POST">
 
         <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl">
