@@ -13,13 +13,19 @@
     <p class="text-center text-md mb-2">Rejoingnez votre équipe !</p>
     <p class="text-center text-sm mb-6">Créez votre compte pour aider votre entreprise dans ses démarches RSE</p>
     <!-- Formulaire de connexion -->
-    <form class="flex flex-col justify-center items-center" action="authentification.php" method="POST">
+    <form class="flex flex-col justify-center items-center" action="creationCompteCollaborateur.php" method="POST">
 
 
-        <!-- input Nom complet -->
+        <!-- input Prénom -->
         <div class="w-11/12 flex flex-col mb-5">
-            <label for="email" class="mb-1">Nom complet</label>
-            <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="John Doe" required>
+            <label for="email" class="mb-1">Prénom</label>
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="text" id="prenom" name="prenom" placeholder="John" required>
+        </div>
+
+        <!-- input Nom -->
+        <div class="w-11/12 flex flex-col mb-5">
+            <label for="email" class="mb-1">Nom</label>
+            <input class="bg-gray-200 h-12 rounded-lg p-4" type="text" id="nom" name="nom" placeholder="Doe" required>
         </div>
 
         <!-- input Email -->
@@ -37,7 +43,7 @@
         <!-- Nom de l'entreprise -->
         <div class="w-11/12 flex flex-col mb-4">
             <label for="password" class="mb-1">Nom de l'entreprise</label>
-            <select class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" value="Google">
+            <select class="bg-gray-200 h-12 rounded-lg p-4" id="entreprise" name="entreprise" value="Google">
             </select>
         </div>
 
