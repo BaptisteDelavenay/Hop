@@ -6,6 +6,14 @@
     <title>Hop</title>
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
+
+<?php
+    require("../connexionBDD/connexionBDD.php");
+    $queryEntreprise = $db->prepare("SELECT DISTINCT nom FROM `entreprise`;");
+    $queryEntreprise->execute();
+    $entreprises = $queryEntreprise->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <body>
 
     <!-- texte de bienvenue et logo -->
@@ -43,7 +51,10 @@
         <!-- Nom de l'entreprise -->
         <div class="w-11/12 flex flex-col mb-4">
             <label for="password" class="mb-1">Nom de l'entreprise</label>
-            <select class="bg-gray-200 h-12 rounded-lg p-4" id="entreprise" name="entreprise" value="Google">
+            <select class="bg-gray-200 h-12 rounded-lg pl-4" id="entreprise" name="entreprise">
+                <?php foreach($entreprises as $entreprise):?>
+                    <option value="<?= $entreprise["nom"] ?>"><?= $entreprise["nom"] ?></option>
+                <?php endforeach;?>
             </select>
         </div>
 
