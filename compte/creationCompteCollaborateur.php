@@ -7,6 +7,8 @@
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $entreprise = $_POST["entreprise"];
 
+
+    // Vérifier si le compte existe déjà dans la bdd
     $verifNewUtilisateur = "SELECT EXISTS(SELECT 1 FROM user WHERE prenom = :prenom AND nom = :nom AND email = :email);";
     $verifUtilisateur = $db->prepare($verifNewUtilisateur);
     $verifUtilisateur->execute(array(
@@ -21,7 +23,8 @@
         echo "compte deja existant !";
         // header("Location: Connexion.php?CompteExistant");
     } 
-    
+
+    // Si il n'existe pas, on le créé
     else {
         
         $nouvelUtilisateur = $db->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES (NULL, :nom, :prenom, :email, :password, 'employe', :entreprise, '0', '0', '0', '0', NULL, current_timestamp());");
