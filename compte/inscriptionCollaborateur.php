@@ -7,6 +7,7 @@
     <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 
+<!-- Requete SQL pour récupérer l'ensemble des entreprises pour le formulaire de création de compte -->
 <?php
     require("../connexionBDD/connexionBDD.php");
     $queryEntreprise = $db->prepare("SELECT DISTINCT nom FROM `entreprise`;");
@@ -58,13 +59,11 @@
             </select>
         </div>
 
-
-
         <!-- Submit -->
         <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-14">
 
         <!-- Lien vers la création de compte -->
-        <p class="text-center mt-14 mb-10">Vous n'avez pas de compte ? <a href="inscriptionChoix.php">Créez-en un !</a></p>
+        <p class="text-center mt-14 mb-10">Vous avez déjà un compte ? <a href="inscriptionChoix.php">Connectez-vous !</a></p>
     </form>
 </body>
 </html>
