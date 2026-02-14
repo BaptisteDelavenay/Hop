@@ -10,7 +10,7 @@
 <!-- Requete SQL pour récupérer l'ensemble des entreprises pour le formulaire de création de compte -->
 <?php
     require("../connexionBDD/connexionBDD.php");
-    $queryEntreprise = $db->prepare("SELECT DISTINCT nom FROM `entreprise`;");
+    $queryEntreprise = $db->prepare("SELECT DISTINCT nom, id FROM `entreprise`;");
     $queryEntreprise->execute();
     $entreprises = $queryEntreprise->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -54,7 +54,7 @@
             <label for="password" class="mb-1">Nom de l'entreprise</label>
             <select class="bg-gray-200 h-12 rounded-lg pl-4" id="entreprise" name="entreprise">
                 <?php foreach($entreprises as $entreprise):?>
-                    <option value="<?= $entreprise["nom"] ?>"><?= $entreprise["nom"] ?></option>
+                    <option value="<?= $entreprise["id"] ?>"><?= $entreprise["nom"] ?></option>
                 <?php endforeach;?>
             </select>
         </div>
