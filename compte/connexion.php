@@ -1,64 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hop</title>
-    <link href="../ASSETS/dist/output.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Hop</title>
+<link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
-<body class="bg-hop-violet">
+<body class="bg-hop-violet h-dvh flex flex-col overflow-hidden font-sans">
 
-    <!-- texte de bienvenue et logo -->    
-    
-    <img src="../IMG/hop-clair.svg" class="w-4/12 m-auto" alt="">
-    <p class=" text-white text-center text-lg font-extrabold">Connexion</p>
+    <header class="flex flex-col items-center justify-center py-6 shrink-0">
+        <img src="../IMG/hop-clair.svg" class="w-4/12 mb-2" alt="Logo Hop">
+        <h1 class="text-white text-2xl font-bold">Connexion</h1>
+    </header>
 
-    <section class="bg-white pt-10 rounded-t-4xl">
-        <!-- Formulaire de connexion -->
-        <form class="flex flex-col justify-center items-center" action="authentification.php" method="POST">
-
-            <!-- Choix collaborateur ou entreprise -->
-            <div class="flex w-11/12 p-1 bg-gray-200 rounded-xl mb-8">
+    <section class="bg-white flex-1 rounded-t-4xl p-6 shadow-2xl">
         
-                <label class="flex-1 cursor-pointer">
-                    <input type="radio" name="user_type" value="collaborateur" class="sr-only peer" checked>
-                    <div class="flex items-center justify-center py-2 text-sm font-semibold text-gray-600 transition-all rounded-lg peer-checked:bg-white peer-checked:text-gray-900 peer-checked:shadow-sm">
-                        Collaborateur
-                    </div>
-                </label>
-
-                <label class="flex-1 cursor-pointer">
-                    <input type="radio" name="user_type" value="entreprise" class="sr-only peer">
-                    <div class="flex items-center justify-center py-2 text-sm font-semibold text-gray-600 transition-all rounded-lg peer-checked:bg-white peer-checked:text-gray-900 peer-checked:shadow-sm">
-                        Entreprise
-                    </div>
-                </label>
+        <form class="flex flex-col items-center justify-center min-h-full w-full" action="authentification.php" method="POST">
             
+            <div class="w-full space-y-8">
+
+                <div class="flex w-full p-1 bg-gray-100 rounded-2xl">
+                    <label class="flex-1 cursor-pointer">
+                        <input type="radio" name="user_type" value="collaborateur" class="sr-only peer" checked>
+                        <div class="flex items-center justify-center py-3 text-sm font-bold text-gray-500 transition-all rounded-xl peer-checked:bg-hop-violet peer-checked:text-white">
+                            Collaborateur
+                        </div>
+                    </label>
+                    <label class="flex-1 cursor-pointer">
+                        <input type="radio" name="user_type" value="entreprise" class="sr-only peer">
+                        <div class="flex items-center justify-center py-3 text-sm font-bold text-gray-500 transition-all rounded-xl peer-checked:bg-hop-violet peer-checked:text-white">
+                            Entreprise
+                        </div>
+                    </label>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="flex flex-col">
+                        <label class="text-xs font-bold uppercase text-gray-400 mb-1 ml-1 tracking-widest">Email pro</label>
+                        <input class="bg-gray-100 border border-gray-200 h-14 rounded-2xl p-4 focus:border-hop-violet outline-none" type="email" placeholder="nom@entreprise.com" required>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-xs font-bold uppercase text-gray-400 mb-1 ml-1 tracking-widest">Mot de passe</label>
+                        <input class="bg-gray-100 border border-gray-200 h-14 rounded-2xl p-4 focus:border-hop-violet outline-none" type="password" placeholder="••••••••••••" required>
+                        <div class="mt-2 text-right">
+                            <a href="#" class="text-xs font-bold text-hop-violet/70">Mot de passe oublié ?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" class="bg-hop-vert text-hop-noir font-extrabold w-full h-14 rounded-2xl shadow-xl active:scale-[0.97] transition-all">
+                        Se connecter
+                    </button>
+                    <p class="text-center mt-6 text-sm text-gray-600">
+                        Nouveau ici ? <a href="inscriptionChoix.php" class="font-bold text-hop-violet">Créez un compte</a>
+                    </p>
+                </div>
+
             </div>
 
-            <!-- input Email -->
-            <div class="w-11/12 flex flex-col mb-5">
-                <label for="email" class="mb-1">Email professionel</label>
-                <input class="bg-gray-200 h-12 rounded-lg p-4" type="email" id="email" name="email" placeholder="nom@entreprise.com" required>
-            </div>
-
-            <!-- input Mot de passe -->
-            <div class="w-11/12 flex flex-col mb-4">
-                <label for="password" class="mb-1">Mot de passe</label>
-                <input class="bg-gray-200 h-12 rounded-lg p-4" type="password" id="password" name="password" placeholder="••••••••••••••••" required>
-            </div>
-
-            <!-- Mot de passe oublié ? -->
-            <div class="w-11/12">
-                <a href="" class="float-right">Mot de passe oublié ?</a>
-            </div>
-
-            <!-- Submit -->
-            <input type="submit" value="Se connecter" class="w-11/12 bg-gray-400 h-10 rounded-lg mt-14">
-
-            <!-- Lien vers la création de compte -->
-            <p class="text-center mt-14">Vous n'avez pas de compte ? <a href="inscriptionChoix.php">Créez-en un !</a></p>
         </form>
     </section>
+
 </body>
 </html>
