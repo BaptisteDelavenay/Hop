@@ -8,9 +8,10 @@
 </head>
 <body>
 
-    <!-- texte de bienvenue et logo -->
-    <p class="text-center text-lg font-extrabold mt-10">Connexion</p>
-    <img src="../IMG/Logo_png.png" class="w-6/12 m-auto" alt="">
+    <!-- texte de bienvenue et logo -->    
+    
+    <img src="../IMG/hop-clair.svg" class="w-4/12 m-auto" alt="">
+    <p class="text-center text-lg font-extrabold">Connexion</p>
 
     <!-- Formulaire de connexion -->
     <form class="flex flex-col justify-center items-center" action="authentification.php" method="POST">

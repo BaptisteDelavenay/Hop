@@ -17,7 +17,7 @@
     </div>
 
     <div class="mt-30">
-        <a href=""><button class="bg-hop-noir text-white font-semibold w-full h-14 rounded-lg">Créer mon compte</button></a>
+        <a href="compte"><button class="bg-hop-noir text-white font-semibold w-full h-14 rounded-lg">Créer mon compte</button></a>
         <a href="compte/connexion.php"><button class="bg-hop-violet text-white font-semibold w-full h-14 rounded-lg mt-4">Se connecter</button></a>
     </div>
 
