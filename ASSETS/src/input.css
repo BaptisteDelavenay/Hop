@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --color-hop-violet: #6030e1;
+  --color-hop-noir: #212121;
+  --color-hop-neon: #e5ff30;
+  --color-hop-vert: #a3d400;
+}

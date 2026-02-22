@@ -8,7 +8,14 @@ module.exports = {
     "!./node_modules/**",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // colors: {
+      //   hopViolet: "#6030E1",
+      //   hopNoir: "#212121",
+      //   hopNeon: "#E5FF30",
+      //   hopVert: "#A3D400",
+      // },
+    },
   },
   plugins: [],
 };
