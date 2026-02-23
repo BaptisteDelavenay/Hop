@@ -6,11 +6,11 @@
 <title>Hop</title>
 <link href="../ASSETS/dist/output.css" rel="stylesheet">
 </head>
-<body class="bg-hop-violet h-dvh flex flex-col overflow-hidden font-sans">
+<body class="bg-hop-violet min-h-screen flex flex-col overflow-hidden font-sans">
 
     <header class="flex flex-col items-center justify-center py-6 shrink-0">
         <img src="../IMG/hop-clair.svg" class="w-4/12 mb-2" alt="Logo Hop">
-        <h1 class="text-white text-2xl font-bold">Connexion</h1>
+        <h2 class="text-white  text-4xl font-bold antialiased leading-tight tracking-tight">Connexion</h>
     </header>
 
     <section class="bg-white flex-1 rounded-t-4xl p-6 shadow-2xl">
@@ -53,7 +53,7 @@
                     <button type="submit" class="bg-hop-vert text-hop-noir font-extrabold w-full h-14 rounded-2xl shadow-xl active:scale-[0.97] transition-all">
                         Se connecter
                     </button>
-                    <p class="text-center mt-6 text-sm text-gray-600">
+                    <p class="text-center mt-20 text-sm text-gray-600">
                         Nouveau ici ? <a href="inscriptionChoix.php" class="font-bold text-hop-violet">Créez un compte</a>
                     </p>
                 </div>
