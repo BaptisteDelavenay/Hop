@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hop - Connexion</title>
-    <link href="../ASSETS/dist/output.css" rel="stylesheet">
+    <link href="../../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 
 <body class="bg-hop-violet h-dvh flex flex-col overflow-hidden font-sans antialiased">
