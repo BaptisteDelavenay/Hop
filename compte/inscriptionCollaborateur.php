@@ -96,7 +96,7 @@
 
             <!-- Submit -->
             <button type="submit" class="bg-hop-vert text-hop-noir text-base font-extrabold w-full h-14 rounded-2xl shadow-xl active:scale-[0.98] transition-all">
-                Se connecter
+                Suivant
             </button>
             
 
