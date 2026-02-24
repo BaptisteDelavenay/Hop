@@ -7,6 +7,24 @@
     <link href="../../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 
+<?php
+
+    // Récupère les infos du premier formulaire pour les mettre dans $_SESSION pour la deuxième étape
+
+    $nomEntreprise = htmlentities($_POST["nomEntreprise"]);
+    $activite = htmlentities($_POST["activite"]);
+    $email = htmlentities($_POST["email"]);
+    $password = htmlentities($_POST["password"]);
+
+    session_start();
+
+    $_SESSION["tempo"]['nomEntreprise'] = $nomEntreprise;
+    $_SESSION["tempo"]['activite'] = $activite;
+    $_SESSION["tempo"]['email'] = $email;
+    $_SESSION["tempo"]['password'] = $password;
+
+?>
+
 
 <body class="bg-hop-violet min-h-dvh flex flex-col">
 
