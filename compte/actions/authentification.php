@@ -26,7 +26,7 @@ function verifMdp(){
 
                     // Démarre une Session en tant que collaborateur
                     session_start();
-                    $_SESSION['session_valide']='OK'; 
+                    $_SESSION['session_collaborateur']='OK'; 
                     $_SESSION['user_id']=$users[0]['id'];
                     header("Location: ../../app/views/accueilCollaborateur.php");
                 }
@@ -34,7 +34,12 @@ function verifMdp(){
                 else if ($users[0]["role"]=="entreprise" && $userType=="entreprise"){
 
                     // Démarre une session en tant qu'entreprise
-                    echo "connexion entreprise réussie";
+                    session_start();
+                    $_SESSION['session_entreprise']='OK'; 
+                    // $_SESSION['user_id']=$users[0]['id'];
+                    // header("Location: ../../app/views/accueilCollaborateur.php");
+                    echo "Session entreprise";
+
                 }
                 else{
                     echo "role incorrect";
