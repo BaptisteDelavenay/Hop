@@ -62,7 +62,7 @@
 
     <!-- Déjà inscrit ? -->
     <div class="mt-auto pt-10 mb-auto pb-6">
-        <p class="text-center text-white">Déjà inscrit ? <a href="connexion.php">Connectez-vous !</a></p>
+        <p class="text-center text-white">Déjà inscrit ? <a class="font-bold" href="connexion.php">Connectez-vous !</a></p>
     </div>
 
 </body>
