@@ -18,7 +18,7 @@
     <section class="bg-white flex-1 rounded-t-4xl p-6 shadow-2xl">
         
         <!-- Formulaire de connexion -->
-        <form class="flex flex-col items-center justify-center min-h-full w-full" action="authentification.php" method="POST">
+        <form class="flex flex-col items-center justify-center min-h-full w-full" action="../actions/authentification.php" method="POST">
             
             <div class="w-full space-y-8">
 

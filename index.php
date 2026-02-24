@@ -24,7 +24,7 @@
                 Créer mon compte
             </button>
         </a>
-        <a href="compte/connexion.php" class="block">
+        <a href="compte/views/connexion.php" class="block">
             <button class="bg-hop-violet text-white font-semibold w-full h-14 rounded-xl shadow-lg active:scale-95 transition-transform">
                 Se connecter
             </button>
