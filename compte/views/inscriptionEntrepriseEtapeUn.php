@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop</title>
-    <link href="../ASSETS/dist/output.css" rel="stylesheet">
+    <link href="../../ASSETS/dist/output.css" rel="stylesheet">
 </head>
 
 <!-- Requete SQL pour récupérer l'ensemble des entreprises pour le formulaire de création de compte -->
