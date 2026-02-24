@@ -32,7 +32,7 @@
             </div>
 
             <div class="flex items-center justify-center w-full h-30 rounded-lg mt-auto overflow-hidden">
-                <img src="../IMG/collaborateur.png" alt="">
+                <img src="../../IMG/collaborateur.png" alt="">
             </div>
         </a>
 
@@ -53,7 +53,7 @@
             </div>
 
             <div class="flex items-center justify-center w-full h-30 rounded-lg mt-auto overflow-hidden">
-                <img src="../IMG/entreprise.png" alt="">
+                <img src="../../IMG/entreprise.png" alt="">
             </div>
         </a>
 

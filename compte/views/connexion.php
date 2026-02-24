@@ -11,7 +11,7 @@
 
     <!-- Logo et titre de la page -->
     <header class="flex flex-col items-center justify-center py-6 shrink-0">
-        <img src="../IMG/hop-clair.svg" class="w-4/12 mb-2" alt="Logo Hop">
+        <img src="../../IMG/hop-clair.svg" class="w-4/12 mb-2" alt="Logo Hop">
         <h2 class="text-white text-4xl font-bold leading-tight tracking-tight">Connexion</h2>
     </header>
 
