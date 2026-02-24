@@ -15,6 +15,7 @@
     ?>
 
     <h1>Bienvenue sur l'accueil du compte collaborateur !</h1>
+    <a href="../../compte/actions/deconnexion.php">Deconnexion</a>
     
 </body>
 </html>
