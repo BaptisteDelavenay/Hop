@@ -26,13 +26,15 @@ function verifMdp(){
                 // echo "</pre>";
                 if ($users[0]["role"]=="collaborateur" && $userType=="collaborateur") {
 
-                    // Démarre une Session en tant qu'entreprise
-                    echo "connexion collaborateur réussie";
+                    // Démarre une Session en tant que collaborateur
+                    session_start();
+                    $_SESSION['session_valide']='OK'; 
+                    header("Location: ../../app/views/accueilCollaborateur.php");
                 }
 
                 else if ($users[0]["role"]=="entreprise" && $userType=="entreprise"){
 
-                    // Démarre une session en tant que collaborateur
+                    // Démarre une session en tant qu'entreprise
                     echo "connexion entreprise réussie";
                 }
             }

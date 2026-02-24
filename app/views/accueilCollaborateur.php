@@ -7,6 +7,13 @@
 </head>
 <body>
 
+    <?php
+        session_start();
+            if ($_SESSION['session_valide']!='OK') {
+                header("Location: ../../compte/views/connexion.php");
+            };
+    ?>
+
     <h1>Bienvenue sur l'accueil du compte collaborateur !</h1>
     
 </body>
