@@ -1,5 +1,5 @@
 <?php
-    include "../connexionBDD/connexionBDD.php";
+    include "../../connexionBDD/connexionBDD.php";
 
     $prenom = $_POST["prenom"];
     $nom = $_POST["nom"];
@@ -27,7 +27,7 @@
     // Si il n'existe pas, on le créé
     else {
         
-        $nouvelUtilisateur = $db->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES (NULL, :nom, :prenom, :email, :password, 'employe', :entreprise, '0', '0', '0', '0', NULL, current_timestamp());");
+        $nouvelUtilisateur = $db->prepare("INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES (NULL, :nom, :prenom, :email, :password, 'collaborateur', :entreprise, '0', '0', '0', '0', NULL, current_timestamp());");
         $nouvelUtilisateur->execute(array(
             'nom' => $nom,
             'prenom' => $prenom,
