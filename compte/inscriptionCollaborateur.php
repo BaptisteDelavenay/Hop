@@ -102,7 +102,7 @@
 
             <!-- Lien vers la création de compte -->
             <div class="flex items-center justify-center my-auto pt-12 pb-10">
-                <p class="text-sm text-gray-500">Vous avez déjà un compte ? <a class="font-bold text-hop-violet" href="inscriptionChoix.php">Connectez-vous !</a></p>
+                <p class="text-sm text-gray-500">Vous avez déjà un compte ? <a class="font-bold text-hop-violet" href="connexion.php">Connectez-vous !</a></p>
             </div>
         </form>
     </section>
