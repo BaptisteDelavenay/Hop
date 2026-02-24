@@ -19,7 +19,7 @@
     </div>
 
     <div class="space-y-4 pb-8">
-        <a href="compte" class="block">
+        <a href="compte/views/inscriptionChoix.php" class="block">
             <button class="bg-hop-noir text-white font-semibold w-full h-14 rounded-xl shadow-lg active:scale-95 transition-transform">
                 Créer mon compte
             </button>
