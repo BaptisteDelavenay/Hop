@@ -9,7 +9,7 @@
 
 <!-- Requete SQL pour récupérer l'ensemble des entreprises pour le formulaire de création de compte -->
 <?php
-    require("../connexionBDD/connexionBDD.php");
+    require("../../connexionBDD/connexionBDD.php");
     $queryEntreprise = $db->prepare("SELECT DISTINCT nom, id FROM `entreprise`;");
     $queryEntreprise->execute();
     $entreprises = $queryEntreprise->fetchAll(PDO::FETCH_ASSOC);
