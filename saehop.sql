@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 14 fév. 2026 à 12:32
+-- Généré le : mer. 25 fév. 2026 à 18:04
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -46,22 +46,21 @@ CREATE TABLE `badge` (
 CREATE TABLE `entreprise` (
   `id` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
-  `taille` varchar(11) DEFAULT NULL,
+  `secteur_activite` varchar(100) NOT NULL,
+  `email` varchar(191) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `photo_profil` varchar(255) DEFAULT 'default.png',
   `total_points` int(11) DEFAULT 0,
-  `niveau_arene` int(11) DEFAULT 1
+  `niveau_arene` int(11) DEFAULT 1,
+  `role` varchar(20) NOT NULL DEFAULT 'entreprise'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `entreprise`
 --
 
-INSERT INTO `entreprise` (`id`, `nom`, `taille`, `total_points`, `niveau_arene`) VALUES
-(1, 'Entreprise', '1', 0, 1),
-(3, 'LVMH', 'GE', 9800, 10),
-(4, 'Airbus', 'GE', 8900, 9),
-(5, 'Doctolib', 'ETI', 5500, 6),
-(6, 'BlaBlaCar', 'ETI', 4200, 5),
-(7, 'Le Slip Français', 'PME', 1200, 2);
+INSERT INTO `entreprise` (`id`, `nom`, `secteur_activite`, `email`, `password`, `photo_profil`, `total_points`, `niveau_arene`, `role`) VALUES
+(10, 'Google', 'Informatique', 'admin@google.com', '$2y$10$KzMvojz5iHzMNcPyUb7Teub9sXLppblFcQ6TQCbiyEoR5CjS3VmQu', 'defaut.png', 0, 1, 'entreprise');
 
 -- --------------------------------------------------------
 
@@ -110,7 +109,7 @@ CREATE TABLE `user` (
   `prenom` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('employe','admin','entreprise') DEFAULT 'employe',
+  `role` enum('collaborateur','admin','entreprise') DEFAULT 'collaborateur',
   `entreprise_id` int(11) NOT NULL DEFAULT 0,
   `total_points` int(11) DEFAULT 0,
   `missions_completees` int(11) DEFAULT 0,
@@ -125,10 +124,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(2, 'admin', 'admin', 'admin@gmail.com', 'admin', 'employe', 1, 0, 0, 0, 0, NULL, '2026-02-13 14:39:28'),
-(3, 'Corvol', 'Mathéo', 'corvomat@gmail.com', 'mouhzfohzoih', 'employe', 1, 0, 0, 0, 0, NULL, '2026-02-13 23:32:27'),
-(4, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$c4OFM2nx/aaqSCTFiV1KGeoDTOzIrMUrCrw98D4aW77xvDHSRK6tm', 'employe', 1, 0, 0, 0, 0, NULL, '2026-02-13 23:36:12'),
-(5, 'Jawish', 'Jan', 'jawishjan@gmail.com', '$2y$10$s97sMkOej50/oggoUJQWluX.pl7sZSZqHRUEO7fLaf0whZJJYCeM2', 'employe', 4, 0, 0, 0, 0, NULL, '2026-02-14 11:45:49');
+(13, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$3zvqmFBkm7RpDjr.rzY6cO8kdfB4eH0k5sTeh2paiMc4NRzGR4oSO', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 16:36:34');
 
 -- --------------------------------------------------------
 
@@ -203,7 +199,7 @@ ALTER TABLE `badge`
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `mission`
@@ -221,7 +217,7 @@ ALTER TABLE `mission_assign`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `user_badge`
@@ -251,7 +247,7 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user_badge`
   ADD CONSTRAINT `user_badge_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_badge_ibfk_2` FOREIGN KEY (`Badge_ID`) REFERENCES `badge` (`ID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `user_badge_ibfk_2` FOREIGN KEY (`Badge_ID`) REFERENCES `badge` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
