@@ -40,7 +40,14 @@
             'password' => $password,
             'photo'   => $photo
         ));
-        echo "compte ajouté !";
+
+        // Une fois le compte crée, on le connecte automatiquement
+        $idEntreprise = $db->lastInsertId(); // Récupère l'id de l'entreprise qu'on vient d'insérer
+        $_SESSION['session_entreprise']='OK';
+        $_SESSION['entreprise_id'] = $idEntreprise;
+        header("Location: ../../app/views/accueilEntreprise.php");
+        exit();
+
     };
 
 ?>
