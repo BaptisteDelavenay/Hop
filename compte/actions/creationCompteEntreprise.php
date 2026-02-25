@@ -12,7 +12,6 @@
     // $photo = $_POST["photoDeProfil"];
     $photo = "defaut.png";
 
-
     // Vérifier si le compte existe déjà dans la bdd
     $verifNewEntreprise = "SELECT EXISTS(SELECT 1 FROM entreprise WHERE nom = :nom AND secteur_activite = :activite AND email = :email);";
     $verifEntreprise = $db->prepare($verifNewEntreprise);
@@ -30,7 +29,6 @@
         // header("Location: Connexion.php?CompteExistant");
     } 
 
-
     // Si il n'existe pas, on le créé
     else {
         
@@ -42,10 +40,7 @@
             'password' => $password,
             'photo'   => $photo
         ));
-
         echo "compte ajouté !";
     };
-
-
 
 ?>

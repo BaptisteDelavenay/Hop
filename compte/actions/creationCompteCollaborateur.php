@@ -36,17 +36,6 @@
             'entreprise' => $entreprise
         ));
 
-        // echo "<br>";
-        // echo $prenom;
-        // echo "<br>";
-        // echo $nom;
-        // echo "<br>";
-        // echo $email;
-        // echo "<br>";
-        // echo $password;
-        // echo "<br>";
-        // echo $entreprise;
-
         echo "compte ajouté !";
     };
 ?>
