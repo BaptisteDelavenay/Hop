@@ -20,7 +20,7 @@
     <header class="w-full pt-10 p-4 mb-24 flex items-start justify-between">
 
         <div class="flex items-start">
-            <div class="bg-black w-18 h-18 rounded-full"></div>
+            <div class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center"><img class="scale-110" src="../../IMG/defaultProfile.png" alt=""></div>
             <div class="ml-4">
                 <h3 class="text-white text-xl">Bonjour, Bienvenue</h3>
                 <h2 class="text-white text-4xl font-bold"><?= $_SESSION['collaborateur_prenom'] ?></h2>
@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        
+
     </section>
 
 
