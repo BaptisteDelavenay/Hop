@@ -1,19 +1,18 @@
 <?php
     include "../../connexionBDD/connexionBDD.php";
 
+    session_start();
+
     $prenom = $_POST["prenom"];
     $nom = $_POST["nom"];
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $entreprise = $_POST["entreprise"];
 
-
     // Vérifier si le compte existe déjà dans la bdd
-    $verifNewUtilisateur = "SELECT EXISTS(SELECT 1 FROM user WHERE prenom = :prenom AND nom = :nom AND email = :email);";
+    $verifNewUtilisateur = "SELECT EXISTS(SELECT 1 FROM user WHERE email = :email);";
     $verifUtilisateur = $db->prepare($verifNewUtilisateur);
     $verifUtilisateur->execute(array(
-        'nom' => $nom,
-        'prenom' => $prenom,
         'email' => $email
     ));
 
@@ -36,6 +35,11 @@
             'entreprise' => $entreprise
         ));
 
-        echo "compte ajouté !";
+        // Une fois le compte crée, on le connecte automatiquement
+        $idUser = $db->lastInsertId(); // Récupère l'id de l'utilisateur qu'on vient d'insérer
+        $_SESSION['session_collaborateur']='OK';
+        $_SESSION['user_id'] = $idUser;
+        header("Location: ../../app/views/accueilCollaborateur.php");
+        exit();
     };
 ?>
