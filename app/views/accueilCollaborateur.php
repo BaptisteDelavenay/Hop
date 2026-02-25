@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop - Collaborateur</title>
+    <link href="../../ASSETS/dist/output.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -15,8 +17,7 @@
             };
     ?>
 
-    <h1>Bienvenue sur l'accueil du compte collaborateur !</h1>
-    <a href="../../compte/actions/deconnexion.php">Deconnexion</a>
+
     
 </body>
 </html>
