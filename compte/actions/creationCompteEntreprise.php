@@ -34,7 +34,7 @@
     // Si il n'existe pas, on le créé
     else {
         
-        $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, mdp, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
+        $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
         $nouvelleEntreprise->execute(array(
             'nom'     => $nomEntreprise,
             'activite' => $activite,
