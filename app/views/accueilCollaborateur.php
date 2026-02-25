@@ -9,8 +9,9 @@
 
     <?php
         session_start();
-            if ($_SESSION['session_valide']!='OK') {
-                header("Location: ../../compte/views/connexion.php");
+            if ($_SESSION['session_collaborateur']!='OK') {
+                // header("Location: ../../compte/views/connexion.php");
+                echo "erreur de session";
             };
     ?>
 
