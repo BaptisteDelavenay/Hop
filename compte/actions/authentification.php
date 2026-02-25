@@ -24,6 +24,8 @@
         if($account['role'] === $userType){
             $_SESSION['session_'.$userType]='OK';
             $_SESSION[$userType.'_id'] = $account['id'];
+            $_SESSION[$userType.'_nom']=$account['nom'];
+            $_SESSION[$userType.'_prenom'] = (isset($account['prenom'])) ? $account['prenom'] : NULL;
             // Choisi le fichier vers lequel l'utilisateur sera renvoyé en fonction de son rôle
             $redirection = ($userType === "entreprise") ? "accueilEntreprise.php" : "accueilCollaborateur.php";
             header("Location: ../../app/views/".$redirection);
