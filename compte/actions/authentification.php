@@ -23,7 +23,7 @@
         // Si le role de la bdd correspond avec le role du formulaire
         if($account['role'] === $userType){
             $_SESSION['session_'.$userType]='OK';
-            $_SESSION['user_id'] = $account['id'];
+            $_SESSION[$userType.'_id'] = $account['id'];
             // Choisi le fichier vers lequel l'utilisateur sera renvoyé en fonction de son rôle
             $redirection = ($userType === "entreprise") ? "accueilEntreprise.php" : "accueilCollaborateur.php";
             header("Location: ../../app/views/".$redirection);
