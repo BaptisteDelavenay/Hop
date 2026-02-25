@@ -15,7 +15,7 @@
     $entreprises = $queryEntreprise->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<body class="bg-hop-violet">
+<body class="bg-hop-violet min-h-dvh flex flex-col">
 
     <!-- texte de bienvenue et logo -->
     <header class="flex flex-col items-center justify-center py-8">
