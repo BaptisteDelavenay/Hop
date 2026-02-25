@@ -15,7 +15,7 @@
     $selectAccount = $db->prepare("SELECT * FROM $table WHERE Email = :email");
     $selectAccount->execute(array(
         "email"=>$email
-    )); 
+    ));
     $account = $selectAccount->fetch(PDO::FETCH_ASSOC);
 
     // Si le compte existe et que le mdp est correct
