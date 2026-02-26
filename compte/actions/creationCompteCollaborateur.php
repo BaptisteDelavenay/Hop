@@ -39,6 +39,7 @@
         $idUser = $db->lastInsertId(); // Récupère l'id de l'utilisateur qu'on vient d'insérer
         $_SESSION['session_collaborateur']='OK';
         $_SESSION['user_id'] = $idUser;
+        $_SESSION["collaborateur_prenom"] = $prenom;
         header("Location: ../../app/views/accueilCollaborateur.php");
         exit();
     };
