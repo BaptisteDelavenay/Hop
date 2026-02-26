@@ -19,6 +19,7 @@
             echo "erreur de session";
         };
 
+        // Récupère toutes les infos concernant le compte connecté
         $selectUser = "SELECT * FROM `user` WHERE id = :id;";
         $User = $db->prepare($selectUser);
         $User->execute(array(
@@ -26,6 +27,8 @@
         ));
 
         $infosUser = $User->fetch(PDO::FETCH_ASSOC);
+
+        // Récupère le lien de la photo de profil
         $pdp = $infosUser["photo_profil"];
     ?>
 

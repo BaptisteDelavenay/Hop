@@ -10,8 +10,10 @@
     $password = $_SESSION["tempo"]["password"];
     $entreprise = $_SESSION["tempo"]["entreprise"];
 
+    // Récupère la photo importée
     $photo = $_FILES["photoDeProfil"];
 
+    // Variables concernant les infos de l'image qui seront utiles dans le code pour l'import de l'image
     $fileName = $_FILES["photoDeProfil"]["name"];
     $fileSize = $_FILES["photoDeProfil"]["size"];
     $FileExt = pathinfo($fileName, PATHINFO_EXTENSION);

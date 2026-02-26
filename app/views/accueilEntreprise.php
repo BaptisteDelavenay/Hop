@@ -19,6 +19,7 @@
             echo "erreur de session";
         };
 
+        // Récupère toutes les infos concernant le compte connecté
         $selectEntreprise = "SELECT * FROM `entreprise` WHERE entreprise.id = :id;";
         $Entreprise = $db->prepare($selectEntreprise);
         $Entreprise->execute(array(
@@ -26,7 +27,8 @@
         ));
 
         $infosEntreprise = $Entreprise->fetch(PDO::FETCH_ASSOC);
-        // print_r($infosEntreprise);
+
+        // Récupère le lien de la photo de profil
         $pdp = $infosEntreprise["photo_profil"];
     ?>
 

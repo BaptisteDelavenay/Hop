@@ -19,6 +19,7 @@
 
     session_start();
 
+    // stocke les infos du premier form dans $_SESSION
     $_SESSION["tempo"]['prenom'] = $prenom;
     $_SESSION["tempo"]['nom'] = $nom;
     $_SESSION["tempo"]['email'] = $email;
