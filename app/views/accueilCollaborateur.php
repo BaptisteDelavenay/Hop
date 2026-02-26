@@ -76,6 +76,7 @@
 
     </section>
 
+    <?php include("../../composants/nav.php"); ?>
 
     
 </body>
