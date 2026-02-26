@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop - Entreprise</title>
+    <link href="../../ASSETS/dist/output.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -17,11 +19,21 @@
             echo "erreur de session";
         };
 
-        // print_r($_SESSION);
+        $selectEntreprise = "SELECT * FROM `entreprise` WHERE entreprise.id = :id;";
+        $Entreprise = $db->prepare($selectEntreprise);
+        $Entreprise->execute(array(
+            'id'=>$_SESSION["entreprise_id"]
+        ));
+
+        $infosEntreprise = $Entreprise->fetch(PDO::FETCH_ASSOC);
+        // print_r($infosEntreprise);
+        $pdp = $infosEntreprise["photo_profil"];
     ?>
 
     <h1>Bienvenue sur l'accueil du compte entreprise !</h1>
+    <img class="w-20" src="<?= $pdp ?>" alt="">
     <a href="../../compte/actions/deconnexion.php">Deconnexion</a>
+
 
     <?php
     
