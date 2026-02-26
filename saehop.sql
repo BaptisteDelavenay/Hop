@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 25 fév. 2026 à 18:04
+-- Généré le : jeu. 26 fév. 2026 à 16:41
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -60,7 +60,8 @@ CREATE TABLE `entreprise` (
 --
 
 INSERT INTO `entreprise` (`id`, `nom`, `secteur_activite`, `email`, `password`, `photo_profil`, `total_points`, `niveau_arene`, `role`) VALUES
-(10, 'Google', 'Informatique', 'admin@google.com', '$2y$10$KzMvojz5iHzMNcPyUb7Teub9sXLppblFcQ6TQCbiyEoR5CjS3VmQu', 'defaut.png', 0, 1, 'entreprise');
+(10, 'Google', 'Informatique', 'admin@google.com', '$2y$10$KzMvojz5iHzMNcPyUb7Teub9sXLppblFcQ6TQCbiyEoR5CjS3VmQu', 'defaut.png', 0, 1, 'entreprise'),
+(12, 'Nike', 'Vetements', 'admin@nike.com', '$2y$10$D9THzPNYZREYufeCrxas9OTsSCG1nye7a5j1snk1LJ2QvN1CZVbEi', 'defaut.png', 0, 1, 'entreprise');
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(13, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$3zvqmFBkm7RpDjr.rzY6cO8kdfB4eH0k5sTeh2paiMc4NRzGR4oSO', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 16:36:34');
+(13, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$3zvqmFBkm7RpDjr.rzY6cO8kdfB4eH0k5sTeh2paiMc4NRzGR4oSO', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 16:36:34'),
+(14, 'Jawish', 'Jan', 'janjawish@gmail.com', '$2y$10$h/r9RUfSmLaLCjj8U2HkLeHTtF/3y1eo2RPInrYb9GKLyapvchP96', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 18:19:16'),
+(16, 'Corvol', 'Mathéo', 'corvomat@gmail.com', '$2y$10$xJ8X4tALzUEa5YevirI.9e8wVO5HkKR4QRQifHQ668e0clQm.3a3a', 'collaborateur', 12, 0, 0, 0, 0, NULL, '2026-02-25 18:37:13');
 
 -- --------------------------------------------------------
 
@@ -199,7 +202,7 @@ ALTER TABLE `badge`
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `mission`
@@ -217,7 +220,7 @@ ALTER TABLE `mission_assign`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `user_badge`
