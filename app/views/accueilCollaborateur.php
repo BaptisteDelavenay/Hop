@@ -10,17 +10,29 @@
 <body class="bg-hop-violet min-h-dvh">
 
     <?php
+        include "../../connexionBDD/connexionBDD.php";
+
         session_start();
-            if ($_SESSION['session_collaborateur']!='OK') {
-                // header("Location: ../../compte/views/connexion.php");
-                echo "erreur de session";
-            };
+
+        if ($_SESSION['session_collaborateur']!='OK') {
+            // header("Location: ../../compte/views/connexion.php");
+            echo "erreur de session";
+        };
+
+        $selectUser = "SELECT * FROM `user` WHERE id = :id;";
+        $User = $db->prepare($selectUser);
+        $User->execute(array(
+            'id'=>$_SESSION["collaborateur_id"]
+        ));
+
+        $infosUser = $User->fetch(PDO::FETCH_ASSOC);
+        $pdp = $infosUser["photo_profil"];
     ?>
 
     <header class="w-full pt-10 p-4 mb-24 flex items-start justify-between">
 
         <div class="flex items-start">
-            <div class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center"><img class="scale-110" src="../../IMG/defaultProfile.png" alt=""></div>
+            <div class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center"><img class="h-full w-full scale-110 object-cover" src="<?= $pdp ?>" alt=""></div>
             <div class="ml-4">
                 <h3 class="text-white text-xl">Bonjour, Bienvenue</h3>
                 <h2 class="text-white text-4xl font-bold"><?= $_SESSION['collaborateur_prenom'] ?></h2>

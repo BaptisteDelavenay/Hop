@@ -29,7 +29,7 @@
 
         
         <!-- Formulaire de connexion -->
-        <form class="flex flex-col justify-center items-center" action="../actions/creationCompteCollaborateur.php" method="POST">
+        <form class="flex flex-col justify-center items-center" action="inscriptionCollaborateurEtapeDeux.php" method="POST">
 
 
             <!-- input Prénom -->

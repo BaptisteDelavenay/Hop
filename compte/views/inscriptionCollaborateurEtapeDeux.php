@@ -11,37 +11,37 @@
 
     // Récupère les infos du premier formulaire pour les mettre dans $_SESSION pour la deuxième étape
 
-    $nomEntreprise = htmlentities($_POST["nomEntreprise"]);
-    $activite = htmlentities($_POST["activite"]);
+    $prenom = htmlentities($_POST["prenom"]);
+    $nom = htmlentities($_POST["nom"]);
     $email = htmlentities($_POST["email"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $entreprise = $_POST["entreprise"];
 
     session_start();
 
-    $_SESSION["tempo"]['nomEntreprise'] = $nomEntreprise;
-    $_SESSION["tempo"]['activite'] = $activite;
+    $_SESSION["tempo"]['prenom'] = $prenom;
+    $_SESSION["tempo"]['nom'] = $nom;
     $_SESSION["tempo"]['email'] = $email;
     $_SESSION["tempo"]['password'] = $password;
+    $_SESSION["tempo"]['entreprise'] = $entreprise;
 
 ?>
-
 
 <body class="bg-hop-violet min-h-dvh flex flex-col">
 
     <!-- texte de bienvenue et logo -->
     <header class="flex flex-col items-center justify-center py-8">
         <p class="text-white text-4xl font-bold leading-tight tracking-tight">Inscription</p>
-        <p class="text-white font-medium">entreprise</p>
     </header>
 
     <section class="flex-1 flex flex-col items-center bg-white rounded-t-4xl p-6">
 
-        <p class="text-center mb-2 text-2xl font-bold mt-6">Inscrivez votre entreprise !</p>
-        <p class="text-center text-gray-500 font-medium mt-2 mb-4">Étape 2 / 2</p>
+        <p class="text-center mb-2 text-2xl font-bold mt-6">Rejoingnez votre équipe !</p>
+        <p class="text-center text-gray-500 font-medium mt-2 mb-4">étape 2 / 2</p>
 
         <!-- Input pour la photo de profil de l'entreprise -->
 
-        <form action="../actions/creationCompteEntreprise.php" enctype="multipart/form-data" method="POST" class="flex items-center justify-center flex-col space-y-1 w-full">
+        <form action="../actions/creationCompteCollaborateur.php" enctype="multipart/form-data" method="POST" class="flex items-center justify-center flex-col space-y-1 w-full">
 
             <label for="photoDeProfil" class="cursor-pointer mb-6">
                 <div class="bg-gray-100 h-60 w-60 flex items-center justify-center rounded-full border border-1 border-gray-400 hover:bg-gray-200 transition-colors">
@@ -50,7 +50,7 @@
                 <input type="file" id="photoDeProfil" name="photoDeProfil" class="hidden">
             </label>
 
-            <p class="text-lg font-bold">Ajoutez votre logo</p>
+            <p class="text-lg font-bold">Ajoutez votre photo de profil</p>
             <p>fichiers autorisés : .jpg, .avif, .webp</p>
 
             <div class="mt-auto pt-20 flex items-center flex-col gap-6 w-full">
