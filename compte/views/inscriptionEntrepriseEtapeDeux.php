@@ -41,7 +41,7 @@
 
         <!-- Input pour la photo de profil de l'entreprise -->
 
-        <form action="../actions/creationCompteEntreprise.php" method="POST" class="flex items-center justify-center flex-col space-y-1 w-full">
+        <form action="../actions/creationCompteEntreprise.php" enctype="multipart/form-data" method="POST" class="flex items-center justify-center flex-col space-y-1 w-full">
 
             <label for="photoDeProfil" class="cursor-pointer mb-6">
                 <div class="bg-gray-100 h-60 w-60 flex items-center justify-center rounded-full border border-1 border-gray-400 hover:bg-gray-200 transition-colors">

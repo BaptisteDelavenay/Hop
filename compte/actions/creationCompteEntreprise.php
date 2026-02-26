@@ -9,8 +9,12 @@
     $activite = $_SESSION["tempo"]["activite"];
     $email = $_SESSION["tempo"]["email"];
     $password = $_SESSION["tempo"]["password"];
-    // $photo = $_POST["photoDeProfil"];
-    $photo = "defaut.png";
+    $photo = $_FILES["photoDeProfil"];
+
+    // Variables concernant les infos de l'image qui seront utiles dans le code pour l'import de l'image
+    $fileName = $_FILES["photoDeProfil"]["name"];
+    $fileSize = $_FILES["photoDeProfil"]["size"];
+    $FileExt = pathinfo($fileName, PATHINFO_EXTENSION);
 
     // Vérifier si le compte existe déjà dans la bdd
     $verifNewEntreprise = "SELECT EXISTS(SELECT 1 FROM entreprise WHERE nom = :nom AND secteur_activite = :activite AND email = :email);";
@@ -31,6 +35,24 @@
 
     // Si il n'existe pas, on le créé
     else {
+
+        // Si l'image est supérieure à 3MO on ne l'accpete pas
+        if ($fileSize > 3 * 1024 * 1024) {
+            die("Erreur : fichier trop lourd");
+        }
+
+        // Génère un nom unique
+        $nouveauNom = md5(uniqid()).".".$FileExt;
+
+        // Destination du fichier (dossier upload)
+        $destination = "../../uploads/".$nouveauNom;
+
+        if(move_uploaded_file($_FILES['photoDeProfil']['tmp_name'], $destination)){
+            echo "fichier ajouté !";
+        }
+        else{
+            die("Erreur : Problème lors de l'importation du fichier");
+        }
         
         $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
         $nouvelleEntreprise->execute(array(
@@ -38,13 +60,14 @@
             'activite' => $activite,
             'email'   => $email,
             'password' => $password,
-            'photo'   => $photo
+            'photo'   => $destination
         ));
 
         // Une fois le compte crée, on le connecte automatiquement
         $idEntreprise = $db->lastInsertId(); // Récupère l'id de l'entreprise qu'on vient d'insérer
         $_SESSION['session_entreprise']='OK';
         $_SESSION['entreprise_id'] = $idEntreprise;
+        // $_SESSION['photodeprofil'] = $destination;
         header("Location: ../../app/views/accueilEntreprise.php");
         exit();
 
