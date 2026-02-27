@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 26 fév. 2026 à 16:41
+-- Généré le : ven. 27 fév. 2026 à 16:01
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -60,8 +60,9 @@ CREATE TABLE `entreprise` (
 --
 
 INSERT INTO `entreprise` (`id`, `nom`, `secteur_activite`, `email`, `password`, `photo_profil`, `total_points`, `niveau_arene`, `role`) VALUES
-(10, 'Google', 'Informatique', 'admin@google.com', '$2y$10$KzMvojz5iHzMNcPyUb7Teub9sXLppblFcQ6TQCbiyEoR5CjS3VmQu', 'defaut.png', 0, 1, 'entreprise'),
-(12, 'Nike', 'Vetements', 'admin@nike.com', '$2y$10$D9THzPNYZREYufeCrxas9OTsSCG1nye7a5j1snk1LJ2QvN1CZVbEi', 'defaut.png', 0, 1, 'entreprise');
+(14, 'Macdo', 'FastFood', 'admin@mcdo.com', '$2y$10$eTPfRlTtKdXWlxKXbcbOnefGoh6RFSg/MeU/1J4xtT6p1/ulxjO.C', '../../uploads/a85bd98ff6eb266c653793a133065528.png', 0, 1, 'entreprise'),
+(15, 'Google', 'informatique', 'admin@google.com', '$2y$10$EJoZb/YWooRhMFzNs2Xhbe6m0pE7TqA1mKm.hX1pPH4eDKVjPKrkG', '../../uploads/ed6bf5448a04c801c5c1d2ac01811a68.png', 0, 1, 'entreprise'),
+(16, 'Nike', 'Vetements', 'admin@nike.com', '$2y$10$6aXR.G4hcAjVabN4zI95PuQqIL.V8NBYTGxFQFUCDimfnzdaLgIWS', '../../uploads/684709970db84768e0aa909db19711b0.jpg', 0, 1, 'entreprise');
 
 -- --------------------------------------------------------
 
@@ -112,6 +113,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `role` enum('collaborateur','admin','entreprise') DEFAULT 'collaborateur',
   `entreprise_id` int(11) NOT NULL DEFAULT 0,
+  `photo_profil` varchar(255) NOT NULL,
   `total_points` int(11) DEFAULT 0,
   `missions_completees` int(11) DEFAULT 0,
   `streak` int(11) DEFAULT 0,
@@ -124,10 +126,8 @@ CREATE TABLE `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(13, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$3zvqmFBkm7RpDjr.rzY6cO8kdfB4eH0k5sTeh2paiMc4NRzGR4oSO', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 16:36:34'),
-(14, 'Jawish', 'Jan', 'janjawish@gmail.com', '$2y$10$h/r9RUfSmLaLCjj8U2HkLeHTtF/3y1eo2RPInrYb9GKLyapvchP96', 'collaborateur', 10, 0, 0, 0, 0, NULL, '2026-02-25 18:19:16'),
-(16, 'Corvol', 'Mathéo', 'corvomat@gmail.com', '$2y$10$xJ8X4tALzUEa5YevirI.9e8wVO5HkKR4QRQifHQ668e0clQm.3a3a', 'collaborateur', 12, 0, 0, 0, 0, NULL, '2026-02-25 18:37:13');
+INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
+(19, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$IKbCRXFLyfUwHz.Z3cQZAOsWSiNpdlA9TZEKToW.wfp6hYoldeoC.', 'collaborateur', 15, '../../uploads/4c93cf1094e5d5b578d281964786039e.jpg', 0, 0, 0, 0, NULL, '2026-02-26 22:58:53');
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,7 @@ ALTER TABLE `badge`
 -- AUTO_INCREMENT pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `mission`
@@ -220,7 +220,7 @@ ALTER TABLE `mission_assign`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `user_badge`
