@@ -28,6 +28,15 @@
         <p class="text-center mb-2 text-2xl font-bold mt-8">Inscrivez votre entreprise !</p>
         <p class="text-center text-gray-500 font-medium mt-4 mb-6">Étape 1 / 2</p>
 
+        <?php 
+            session_start();
+            // Si l'erreur existe 
+            if (isset($_SESSION["erreur"])): ?>
+            <!-- Alors on l'affiche -->
+            <p class="text-sm text-center text-red-500 mb-4"><?= $_SESSION["erreur"] ?></p>
+            <!-- Puis on la détruit pour qu'elle s'efface si on actualise -->
+            <?php unset($_SESSION["erreur"]); ?>
+        <?php endif;?>
         
         <!-- Formulaire de connexion -->
         <form class="flex flex-col justify-center items-center" action="inscriptionEntrepriseEtapeDeux.php" method="POST">

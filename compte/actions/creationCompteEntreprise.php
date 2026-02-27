@@ -29,8 +29,9 @@
 
     // Vérifie si le compte existe déjà
     if ($exists) {
-        echo "compte deja existant !";
-        // header("Location: Connexion.php?CompteExistant");
+        $_SESSION["erreur"] = "Compte déjà existant. Veuillez vous connectez !";
+        header("Location: ../views/connexion.php");
+        exit();
     } 
 
     // Si il n'existe pas, on le créé
@@ -38,7 +39,9 @@
 
         // Si l'image est supérieure à 3MO on ne l'accpete pas
         if ($fileSize > 3 * 1024 * 1024) {
-            die("Erreur : fichier trop lourd");
+            $_SESSION["erreur"] = "Fichier trop lourd !";
+            header("Location: ../views/inscriptionEntrepriseEtapeUn.php");
+            exit();
         }
 
         // Génère un nom unique
@@ -48,28 +51,32 @@
         $destination = "../../uploads/".$nouveauNom;
 
         if(move_uploaded_file($_FILES['photoDeProfil']['tmp_name'], $destination)){
-            echo "fichier ajouté !";
-        }
-        else{
-            die("Erreur : Problème lors de l'importation du fichier");
+            $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
+            $nouvelleEntreprise->execute(array(
+                'nom'     => $nomEntreprise,
+                'activite' => $activite,
+                'email'   => $email,
+                'password' => $password,
+                'photo'   => $destination
+            ));
+
+            // Une fois le compte crée, on le connecte automatiquement
+            $idEntreprise = $db->lastInsertId(); // Récupère l'id de l'entreprise qu'on vient d'insérer
+            $_SESSION['session_entreprise']='OK';
+            $_SESSION['entreprise_id'] = $idEntreprise;
+           
+            // $_SESSION['photodeprofil'] = $destination;
+            header("Location: ../../app/views/accueilEntreprise.php");
+            exit();        
         }
         
-        $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
-        $nouvelleEntreprise->execute(array(
-            'nom'     => $nomEntreprise,
-            'activite' => $activite,
-            'email'   => $email,
-            'password' => $password,
-            'photo'   => $destination
-        ));
-
-        // Une fois le compte crée, on le connecte automatiquement
-        $idEntreprise = $db->lastInsertId(); // Récupère l'id de l'entreprise qu'on vient d'insérer
-        $_SESSION['session_entreprise']='OK';
-        $_SESSION['entreprise_id'] = $idEntreprise;
-        // $_SESSION['photodeprofil'] = $destination;
-        header("Location: ../../app/views/accueilEntreprise.php");
-        exit();
+        else{
+            $_SESSION["erreur"] = "Problème lors de l'importation de l'image. Veuillez Réessayer !";
+            header("Location: ../views/inscriptionEntrepriseEtapeUn.php");
+            exit();
+        }
+        
+        
 
     };
 
