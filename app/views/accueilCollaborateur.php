@@ -10,9 +10,10 @@
 <body class="bg-hop-violet min-h-dvh">
 
     <?php
-        include "../../connexionBDD/connexionBDD.php";
-
         session_start();
+
+        include "../../connexionBDD/connexionBDD.php";
+        include "../actions/missions.php";
 
         if ($_SESSION['session_collaborateur']!='OK') {
             // header("Location: ../../compte/views/connexion.php");
@@ -92,19 +93,21 @@
 
         <!-- Missions du jour -->
         <div class="flex flex-col mt-4 w-full bg-white border border-gray-300 rounded-2xl px-4 pr-6 py-6 gap-6">
-            <!-- Mission 1 -->
+            <!-- Création des missions dynamiquement grâce à la boucle -->
+             <?php $i=1; foreach ($missions as $mission): ?>
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <div class="flex items-center justify-center h-14 w-14 bg-hop-violet text-white text-xl rounded-full mr-4">1</div>
+                    <div class="flex items-center justify-center h-14 w-14 bg-hop-violet text-white text-xl rounded-full mr-4 shrink-0"><?= $i ?></div>
                     <div>
-                        <p class="font-bold text-xl">E-mail</p>
-                        <p class="text-gray-500">Supprimez 10 emails inutiles</p>
+                        <p class="font-bold text-xl"><?= $mission["titre"] ?></p>
+                        <p class="text-gray-500"><?= $mission["description"] ?></p>
                     </div>
                 </div>
                 <div class="bg-amber-300 rounded-2xl px-3 py-1">
-                    <p>+10pts</p>
+                    <p><?= "+".$mission["points_base"]."pts" ?></p>
                 </div>
             </div>
+            <?php $i+=1; endforeach;?>
         </div>
 
 
