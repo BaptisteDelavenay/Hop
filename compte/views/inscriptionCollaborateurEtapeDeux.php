@@ -45,8 +45,9 @@
         <form action="../actions/creationCompteCollaborateur.php" enctype="multipart/form-data" method="POST" class="flex items-center justify-center flex-col space-y-1 w-full">
 
             <label for="photoDeProfil" class="cursor-pointer mb-6">
-                <div class="bg-gray-100 h-60 w-60 flex items-center justify-center rounded-full border border-1 border-gray-400 hover:bg-gray-200 transition-colors">
+                <div id="imgContainer" class="bg-gray-100 h-60 w-60 flex items-center justify-center rounded-full border border-1 border-gray-400 hover:bg-gray-200 transition-colors overflow-hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="size-30 stroke-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                    <img id="img" class="h-full w-ful object-cover hidden" src="" alt="">
                 </div>
                 <input type="file" id="photoDeProfil" name="photoDeProfil" class="hidden">
             </label>
@@ -62,6 +63,8 @@
         </form>
 
     </section>
+    
+    <script src="../../JS/pdpPreview.js"></script>
 
 </body>
 </html>
