@@ -50,7 +50,7 @@
     <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl min-h-dvh absolute">
 
         <!-- div Streak -->
-        <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -top-20">
+        <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -mt-20">
             <div class="flex items-start justify-between w-full">
                 <div class="flex">
                     <p class="text-8xl -ml-8">🔥</p>
@@ -85,6 +85,25 @@
                     <p class="mt-2 text-sm">Ven</p>        
                 </div>
                 
+            </div>
+        </div>
+
+        <h2 class="mt-10 text-4xl font-extrabold">Missions du jour</h2>
+
+        <!-- Missions du jour -->
+        <div class="flex flex-col mt-4 w-full bg-white border border-gray-300 rounded-2xl px-4 pr-6 py-6 gap-6">
+            <!-- Mission 1 -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="flex items-center justify-center h-14 w-14 bg-hop-violet text-white text-xl rounded-full mr-4">1</div>
+                    <div>
+                        <p class="font-bold text-xl">E-mail</p>
+                        <p class="text-gray-500">Supprimez 10 emails inutiles</p>
+                    </div>
+                </div>
+                <div class="bg-amber-300 rounded-2xl px-3 py-1">
+                    <p>+10pts</p>
+                </div>
             </div>
         </div>
 
