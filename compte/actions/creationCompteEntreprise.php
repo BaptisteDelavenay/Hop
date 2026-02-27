@@ -65,7 +65,6 @@
             $_SESSION['session_entreprise']='OK';
             $_SESSION['entreprise_id'] = $idEntreprise;
            
-            // $_SESSION['photodeprofil'] = $destination;
             header("Location: ../../app/views/accueilEntreprise.php");
             exit();        
         }
@@ -75,8 +74,6 @@
             header("Location: ../views/inscriptionEntrepriseEtapeUn.php");
             exit();
         }
-        
-        
 
     };
 

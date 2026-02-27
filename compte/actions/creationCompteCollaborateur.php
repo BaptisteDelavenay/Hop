@@ -77,7 +77,6 @@
                 header("Location: ../views/inscriptionCollaborateurEtapeUn.php");
                 exit();
             }
-        
-        
+            
     };
 ?>
