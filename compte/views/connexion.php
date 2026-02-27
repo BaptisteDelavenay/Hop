@@ -39,6 +39,16 @@
                 </div>
 
                 <div class="space-y-6">
+
+                    <?php 
+                        session_start();
+                        // Si l'erreur existe 
+                        if (isset($_SESSION["erreur"])): ?>
+                        <!-- Alors on l'affiche -->
+                        <p class="text-sm text-center text-red-500 mb-4"><?= $_SESSION["erreur"] ?></p>
+                        <!-- Puis on la détruit pour qu'elle s'efface si on actualise -->
+                        <?php unset($_SESSION["erreur"]); ?>
+                    <?php endif;?>
                     
                     <!-- Input Email -->
                     <div class="flex flex-col">

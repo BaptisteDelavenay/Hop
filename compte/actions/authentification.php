@@ -33,7 +33,9 @@
         }
     }
     else{
-        echo "identifiant ou mot de passe incorrect";
+        $_SESSION["erreur"] = "Identifiant ou mot de passe incorrect";
+        header("Location: ../views/connexion.php");
+        exit();
     }
 
 ?>
