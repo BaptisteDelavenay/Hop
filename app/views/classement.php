@@ -48,8 +48,59 @@
             </div>
         </div>
 
+    </section >
+    <section class="bg-white rounded-t-4xl px-6 pt-8 flex flex-col gap-6">
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 ">
+            <p class="text-amber-400 text-3xl mr-4">1.</p>
+            <div class="bg-black h-15 w-15 rounded-full"></div>
+            <div>
+                <p class="text-2xl font-bold">John Doe</p>
+                <p class="text-hop-vert">280 poins</p>
+            </div>
+        </div>
     </section>
-    <section class="bg-white rounded-t-4xl h-100 w-full"></section>
+
+
     <?php include("../../composants/nav.php");?>
 </body>
 </html>
