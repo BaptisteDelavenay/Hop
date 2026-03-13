@@ -14,7 +14,7 @@ Architecture :
 
         - "Views" pour tous les fichiers php qui affichent de l'html dans le navigateur
 
-        - s"Action" pour tous les fichiers qui s'occupent du back (interaction avec la bdd etc...)
+        - "Action" pour tous les fichiers qui s'occupent du back (interaction avec la bdd etc...)
 
     - Le dossier compte contient tous les éléments relatif à la connexion et création de compte des utilisateurs
 
