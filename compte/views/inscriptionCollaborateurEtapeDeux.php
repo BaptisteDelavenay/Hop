@@ -15,7 +15,7 @@
     $nom = htmlentities($_POST["nom"]);
     $email = htmlentities($_POST["email"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $entreprise = $_POST["entreprise"];
+    $code = $_POST["code"];
 
     session_start();
 
@@ -24,7 +24,7 @@
     $_SESSION["tempo"]['nom'] = $nom;
     $_SESSION["tempo"]['email'] = $email;
     $_SESSION["tempo"]['password'] = $password;
-    $_SESSION["tempo"]['entreprise'] = $entreprise;
+    $_SESSION["tempo"]['code'] = $code;
 
 ?>
 
