@@ -49,14 +49,25 @@
 
         // Destination du fichier (dossier upload)
         $destination = "../../uploads/".$nouveauNom;
+ 
+        function randomCode(){
+            $randomCode = "";
+            $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            for ($i=0; $i < 4; $i++) { 
+                $randomNumber = rand(0, strlen($caracteres)-1);
+                $randomCode .= $caracteres[$randomNumber];
+            }
+            return $randomCode;
+        }
 
         if(move_uploaded_file($_FILES['photoDeProfil']['tmp_name'], $destination)){
-            $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :photo, 0, 1)");
+            $nouvelleEntreprise = $db->prepare("INSERT INTO entreprise (nom, secteur_activite, email, password, code_unique, photo_profil, total_points, niveau_arene) VALUES (:nom, :activite, :email, :password, :codeUnique, :photo, 0, 1)");
             $nouvelleEntreprise->execute(array(
                 'nom'     => $nomEntreprise,
                 'activite' => $activite,
                 'email'   => $email,
                 'password' => $password,
+                'codeUnique' => randomCode(),
                 'photo'   => $destination
             ));
 
