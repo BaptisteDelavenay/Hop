@@ -53,7 +53,7 @@
             </label>
 
             <p class="text-lg font-bold">Ajoutez votre photo de profil</p>
-            <p>fichiers autorisés : .jpg, .avif, .webp</p>
+            <p>fichiers autorisés : .jpg, .jpeg, .png, .webp</p>
 
             <div class="mt-auto pt-20 flex items-center flex-col gap-6 w-full">
                 <button class="bg-gray-300 text-gray-600 text-base font-extrabold w-full h-14 rounded-2xl active:scale-[0.98] transition-all">Passer cette étape</button>

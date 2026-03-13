@@ -38,7 +38,7 @@
     }
 
     // Vérification du fichier
-    $extensionsAutorisees = ['jpg', 'jpeg', 'png', 'webp'];
+    $extensionsAutorisees = ['jpg', 'jpeg', 'png', 'webp',];
     if (!in_array($fileExt, $extensionsAutorisees)) {
         $_SESSION["erreur"] = "Format d'image non valide (JPG, PNG, WEBP).";
         header("Location: ../views/inscriptionCollaborateurEtapeUn.php");
