@@ -113,6 +113,19 @@
                     $textBadge = "text-hop-vert";
                     break;
             }
+
+            $estValidee = ($mission['statut'] == 'validee'); 
+    
+            // Prépare les classes css du boutton en fonction du status de la mission
+            if ($estValidee) {
+                $classesBouton = "js-button-valider border border-hop-violet p-4 rounded-full";
+                $disabled = "disabled";
+                $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6030E1" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>';
+            } else {
+                $classesBouton = "js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all";
+                $disabled = "";
+                $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>';
+            }
         ?>
         
         <div id="<?= $mission['id'] ?>" class="w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl">
@@ -132,10 +145,8 @@
                 </div>
             </div>
             <div>
-                <button data-id="<?= $mission['id'] ?>" class="js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
+                <button <?= $disabled; ?> data-id="<?= $mission['id'] ?>" class="<?= $classesBouton ?>">
+                    <?= $icone; ?>
                 </button>
             </div>
         </div>

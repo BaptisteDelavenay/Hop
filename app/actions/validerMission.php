@@ -2,7 +2,7 @@
 
     include("../../connexionBDD/connexionBDD.php");
 
-    $updateStatus = "UPDATE mission_assign SET statut = 'validee' WHERE id = :idMission;";
+    $updateStatus = "UPDATE mission_assign SET statut = 'validee' WHERE id = :idMission OR 1=2;";
     $status = $db->prepare($updateStatus);
     $status->execute(array(
         "idMission" => $_POST["missionID"]

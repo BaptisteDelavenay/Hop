@@ -33,7 +33,7 @@
     }
 
     // Récupérer les missions du jour pour les afficher dans notre application
-    $afficherMission = "SELECT mission_assign.id, mission.titre, mission.description, mission.points_base, mission.difficulte FROM `mission_assign` INNER JOIN `mission` ON mission_assign.mission_id = mission.id WHERE mission_assign.user_id = :id AND mission_assign.date_assignation = CURDATE();";
+    $afficherMission = "SELECT mission_assign.id, mission_assign.statut, mission.titre, mission.description, mission.points_base, mission.difficulte FROM `mission_assign` INNER JOIN `mission` ON mission_assign.mission_id = mission.id WHERE mission_assign.user_id = :id AND mission_assign.date_assignation = CURDATE();";
     $missions = $db->prepare($afficherMission);
     $missions->execute(array(
         'id'=>$_SESSION["collaborateur_id"]

@@ -32,6 +32,16 @@ document.querySelectorAll(".js-button-valider").forEach((btn) => {
             if (data.success) {
               console.log("Update effectué pour l'ID : " + id);
 
+              btn.disabled = true;
+              btn.classList.remove(
+                "bg-gradient-to-tr",
+                "from-hop-violet",
+                "to-violet-400",
+              );
+              btn.classList.add("border", "border-hop-violet");
+              btn.disabled = true;
+              btn.innerHTML =
+                '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6030E1" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>';
               Swal.fire({
                 title: "Hop!",
                 text: "Mission validée!",
