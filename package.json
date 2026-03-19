@@ -22,5 +22,8 @@
     "autoprefixer": "^10.4.24",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.26.23"
   }
 }
