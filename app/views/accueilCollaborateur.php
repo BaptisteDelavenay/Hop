@@ -92,24 +92,55 @@
         <h2 class="mt-10 text-4xl font-extrabold">Missions du jour</h2>
 
         <!-- Missions du jour -->
-        <div class="flex flex-col mt-4 w-full bg-white border border-gray-300 rounded-2xl px-4 pr-6 py-6 gap-6">
-            <!-- Création des missions dynamiquement grâce à la boucle -->
-             <?php $i=1; foreach ($missions as $mission): ?>
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <div class="flex items-center justify-center h-14 w-14 bg-hop-violet text-white text-xl rounded-full mr-4 shrink-0"><?= $i ?></div>
-                    <div>
-                        <p class="font-bold text-xl"><?= $mission["titre"] ?></p>
-                        <p class="text-gray-500"><?= $mission["description"] ?></p>
-                    </div>
+        
+        <section class="flex gap-4 flex-col mt-4">
+        <?php foreach ($missions as $mission): 
+           
+            // Changer la couleur en fonction de la difficulté    
+            $diff = strtolower($mission["difficulte"]); 
+            
+            switch ($diff) {
+                case 'difficile':
+                    $bgBadge = "bg-red-100";
+                    $textBadge = "text-red-600";
+                    break;
+                case 'moyenne':
+                    $bgBadge = "bg-orange-100";
+                    $textBadge = "text-orange-600";
+                    break;
+                default: 
+                    $bgBadge = "bg-[#A3D400]/14";
+                    $textBadge = "text-hop-vert";
+                    break;
+            }
+        ?>
+        
+        <div id="<?= $mission['id'] ?>" class="w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl">
+            <div>
+                <div>
+                    <p class="text-2xl font-bold"><?= $mission["titre"] ?></p>
+                    <p class="text-md"><?= $mission["description"] ?></p>
                 </div>
-                <div class="bg-amber-300 rounded-2xl px-3 py-1">
-                    <p><?= "+".$mission["points_base"]."pts" ?></p>
+                <div class="mt-4 flex gap-2">
+                    <span class="<?= $bgBadge ?> <?= $textBadge ?> font-bold px-4 py-1 rounded-lg text-sm">
+                        <?= ucfirst($mission["difficulte"]) ?>
+                    </span>
+                    
+                    <span class="bg-hop-vert font-bold text-white px-4 py-1 rounded-lg text-sm">
+                        <?= "+".$mission["points_base"]."pts" ?>
+                    </span>
                 </div>
             </div>
-            <?php $i+=1; endforeach;?>
+            <div>
+                <button data-id="<?= $mission['id'] ?>" class="js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </button>
+            </div>
         </div>
-
+        <?php endforeach; ?>
+    </section>
 
     </section>
 
@@ -134,5 +165,6 @@
     </div>
 
     <script src="../../JS/modal.js"></script>
+    <script src="../../JS/validationMission.js"></script>
 </body>
 </html>
