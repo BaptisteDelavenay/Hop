@@ -3,8 +3,7 @@
 document.querySelectorAll(".js-button-valider").forEach((btn) => {
   btn.addEventListener("click", function () {
     const id = this.getAttribute("data-id");
-    console.log(id);
-
+    const points = this.getAttribute("data-points");
     Swal.fire({
       title: "Valider la mission ?",
       text: "Soyez honnête :)",
@@ -19,19 +18,18 @@ document.querySelectorAll(".js-button-valider").forEach((btn) => {
     }).then((result) => {
       if (result.isConfirmed) {
         let MissionID = id;
+
         fetch("../actions/validerMission.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: "missionID=" + MissionID,
+          body: `missionID=${MissionID}&missionPoints=${points}`,
         })
           .then((response) => response.json())
           .then((data) => {
             // 3. ICI on vérifie la réponse du PHP (data.success)
             if (data.success) {
-              console.log("Update effectué pour l'ID : " + id);
-
               btn.disabled = true;
               btn.classList.remove(
                 "bg-gradient-to-tr",
@@ -50,7 +48,7 @@ document.querySelectorAll(".js-button-valider").forEach((btn) => {
                 confirmButtonText: "Continuer",
               });
             } else {
-              console.log("Le PHP a renvoyé une erreur");
+              alert("Le PHP a renvoyé une erreur");
             }
           });
       }

@@ -1,5 +1,7 @@
 <?php
 
+    // Fichier à include dans accueilCollaborateur.php
+
     include("../../connexionBDD/connexionBDD.php");
 
     // PAS DE SESSION_START() CAR IL Y EN A DEJA UN DANS LE FICHIER PRINCIPAL !!!!! 

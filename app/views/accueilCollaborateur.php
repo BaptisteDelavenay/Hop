@@ -139,13 +139,13 @@
                         <?= ucfirst($mission["difficulte"]) ?>
                     </span>
                     
-                    <span class="bg-hop-vert font-bold text-white px-4 py-1 rounded-lg text-sm">
+                    <span class="js-nombre-points bg-hop-vert font-bold text-white px-4 py-1 rounded-lg text-sm">
                         <?= "+".$mission["points_base"]."pts" ?>
                     </span>
                 </div>
             </div>
             <div>
-                <button <?= $disabled; ?> data-id="<?= $mission['id'] ?>" class="<?= $classesBouton ?>">
+                <button <?= $disabled; ?> data-id="<?= $mission['id'] ?>" data-points="<?= $mission['points_base'] ?>" class="<?= $classesBouton ?>">
                     <?= $icone; ?>
                 </button>
             </div>

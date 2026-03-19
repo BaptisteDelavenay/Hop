@@ -1,18 +1,31 @@
 <?php
 
+    session_start();
     include("../../connexionBDD/connexionBDD.php");
 
-    $updateStatus = "UPDATE mission_assign SET statut = 'validee' WHERE id = :idMission OR 1=2;";
+    $updateStatus = "UPDATE mission_assign SET statut = 'validee' WHERE id = :idMission;";
     $status = $db->prepare($updateStatus);
     $status->execute(array(
         "idMission" => $_POST["missionID"]
     ));
 
-    if ($status) {
+    $updatePoints = "UPDATE user SET total_points = total_points+:points WHERE id = :idUser;";
+    $points = $db->prepare($updatePoints);
+    $points->execute(array(
+        "points" => $_POST["missionPoints"],
+        "idUser" => $_SESSION["collaborateur_id"]
+    ));
+
+    if ($status && $points) {
         echo json_encode(["success"=>true]);
     }
     else{
         echo json_encode(["success"=>false]);
     }
+
+    // echo "<pre>";
+    // print_r($_POST);
+    // echo "</pre>";
+
 
 ?>
