@@ -35,6 +35,7 @@ document.querySelectorAll(".js-button-valider").forEach((btn) => {
                 "bg-gradient-to-tr",
                 "from-hop-violet",
                 "to-violet-400",
+                "shadow-lg",
               );
               btn.classList.add("border", "border-hop-violet");
               btn.disabled = true;

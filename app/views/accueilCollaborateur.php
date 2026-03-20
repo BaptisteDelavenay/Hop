@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop - Collaborateur</title>
     <link href="../../ASSETS/dist/output.css" rel="stylesheet">
-
 </head>
 <body class="bg-hop-violet min-h-dvh">
-
     <?php
         session_start();
 
@@ -52,40 +50,31 @@
 
         <!-- div Streak -->
         <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -mt-20">
-            <div class="flex items-start justify-between w-full">
-                <div class="flex">
-                    <p class="text-8xl -ml-8">🔥</p>
-                    <div class="-ml-4 -m-2">
-                        <h1 class="text-5xl font-extrabold leading-tight tracking-tight">28 jours</h1>
-                        <p class="text-gray-500 text-xl">de missions réussies</p>
-                    </div>
+            <!-- Container niv et barre de progression -->
+            <div class="mb-6">
+                <div class="flex items-end justify-between">
+                    <p class="text-gray-500 text-xl">niv. <b class="text-black text-5xl font-bold">16</b></p>
+                    <p class="text-lg text-gray-500"><b class="text-black font-bold">300</b>/400pts</p>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+                <!-- barre de progression -->
+                <div class="w-full h-4 rounded-lg border-1 border-gray-300 overflow-hidden">
+                    <div class="w-50 h-full bg-hop-vert"></div>
+                </div>
             </div>
-            
-            <!-- Jours de la semaine -->
-            <div class="w-full mt-4 gap-6 flex items-center">
-                <div class="w-8 flex flex-col items-center">
-                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-hop-vert"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="green" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg></div>
-                    <p class="mt-2 text-sm">Lun</p>        
+
+            <div class="flex items-start justify-between">
+                <div class="flex flex-col items-center"> 
+                    <div class="flex -space-x-5"> 
+                        <img class="relative z-10 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 1">
+                        <img class="relative z-20 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 2">
+                        <img class="relative z-30 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 3">
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600 font-medium">Mes badges</p>
                 </div>
-                <div class="w-8 flex flex-col items-center">
-                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-hop-vert"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="green" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg></div>
-                    <p class="mt-2 text-sm">Mar</p>        
+                <!-- Bouton -->
+                <div>
+                    <button class="flex gap-2 items-center bg-gradient-to-tr from-hop-violet to-violet-400 px-5 py-2 rounded-4xl text-white font-bold active:scale-90 transition-all">Voir le profil<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></button>
                 </div>
-                <div class="w-8 flex flex-col items-center">
-                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-hop-vert"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="green" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg></div>
-                    <p class="mt-2 text-sm">Mer</p>        
-                </div>
-                <div class="w-8 flex flex-col items-center">
-                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-hop-vert opacity-30"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="green" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg></div>
-                    <p class="mt-2 text-sm">Jeu</p>        
-                </div>
-                <div class="w-8 flex flex-col items-center">
-                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-hop-vert opacity-30"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="green" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg></div>
-                    <p class="mt-2 text-sm">Ven</p>        
-                </div>
-                
             </div>
         </div>
 
