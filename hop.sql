@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 13 mars 2026 à 15:43
+-- Généré le : ven. 20 mars 2026 à 10:02
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `saehop2`
+-- Base de données : `hop`
 --
 
 -- --------------------------------------------------------
@@ -87,13 +87,13 @@ CREATE TABLE `mission` (
 INSERT INTO `mission` (`id`, `titre`, `description`, `points_base`, `difficulte`, `type_preuve`, `active`) VALUES
 (1, 'Extinction totale', 'Éteindre les lumières inutiles.', 10, 'facile', 'aucune', 1),
 (2, 'Zéro veille', 'Éteindre mon écran le soir.', 10, 'facile', 'aucune', 1),
-(3, 'Mail malin', 'Supprimer dix vieux emails.', 15, 'facile', 'texte', 1),
+(3, 'Mail malin', 'Supprimer dix vieux emails.', 15, 'moyenne', 'texte', 1),
 (4, 'Tri sélectif', 'Jeter mes déchets correctement.', 10, 'facile', 'photo', 1),
-(5, 'Escaliers', 'Éviter l\'ascenseur aujourd\'hui.', 20, 'facile', 'aucune', 1),
+(5, 'Escaliers', 'Éviter l\'ascenseur aujourd\'hui.', 20, 'difficile', 'aucune', 1),
 (6, 'Gourde attitude', 'Utiliser une gourde réutilisable.', 10, 'facile', 'photo', 1),
-(7, 'Chauffage éco', 'Baisser le thermostat (19°C).', 15, 'facile', 'aucune', 1),
+(7, 'Chauffage éco', 'Baisser le thermostat (19°C).', 15, 'moyenne', 'aucune', 1),
 (8, 'Onglets propres', 'Fermer les onglets inutilisés.', 5, 'facile', 'aucune', 1),
-(9, 'Partage local', 'Donner un objet inutile.', 25, 'facile', 'photo', 1),
+(9, 'Partage local', 'Donner un objet inutile.', 25, 'difficile', 'photo', 1),
 (10, 'Plante heureuse', 'Arroser une plante verte.', 5, 'facile', 'aucune', 1);
 
 -- --------------------------------------------------------
@@ -122,7 +122,22 @@ CREATE TABLE `mission_assign` (
 INSERT INTO `mission_assign` (`id`, `user_id`, `mission_id`, `date_assignation`, `date_validation`, `statut`, `preuve_url`, `preuve_texte`, `points_gagnes`, `multiplicateur`) VALUES
 (13, 22, 4, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (14, 22, 1, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(15, 22, 6, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1);
+(15, 22, 6, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(16, 22, 2, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(17, 22, 9, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(18, 22, 10, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(19, 22, 3, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(20, 22, 1, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(21, 22, 7, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(22, 22, 5, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(23, 22, 1, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(24, 22, 6, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(28, 44, 10, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
+(29, 44, 5, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
+(30, 44, 9, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
+(31, 22, 6, '2026-03-20', NULL, 'validee', NULL, NULL, NULL, 1),
+(32, 22, 9, '2026-03-20', NULL, 'validee', NULL, NULL, NULL, 1),
+(33, 22, 2, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -152,7 +167,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 0, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
+(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 37, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
 (23, 'Dupont', 'Jean', 'j.dupont@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 518, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (24, 'Martin', 'Alice', 'a.martin@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 692, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (25, 'Lefebvre', 'Thomas', 't.lefebvre@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 907, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
@@ -172,7 +187,8 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entrepr
 (39, 'Roux', 'Gabriel', 'g.roux@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 951, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (40, 'Vincent', 'Zoé', 'z.vincent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 499, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (41, 'Fournier', 'Jules', 'j.fournier@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 440, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24');
+(42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
+(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 50, 0, 0, 0, NULL, '2026-03-19 21:20:39');
 
 -- --------------------------------------------------------
 
@@ -259,13 +275,13 @@ ALTER TABLE `mission`
 -- AUTO_INCREMENT pour la table `mission_assign`
 --
 ALTER TABLE `mission_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT pour la table `user_badge`
