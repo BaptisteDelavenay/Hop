@@ -85,7 +85,7 @@
 
                 <div class="flex justify-center items-center gap-2 mb-6">
                     <div class="text-center">
-                        <p class="text-gray-400 text-[10px] uppercase font-bold tracking-wider mb-1">niv.</p>
+                        <p class="text-gray-400 text-[15px] uppercase font-bold tracking-wider mb-1">niv.</p>
                         <p class="font-bold text-3xl leading-tight text-black"><?= $niveauActuel ?></p>
                     </div>
                 </div>
@@ -110,6 +110,30 @@
             </div>
         </div>
 
+        <div class="w-full mt-10">
+            <h3 class="text-black text-2xl font-bold mb-6 text-center">Badges :</h3>
+
+            <div class="grid grid-cols-3 gap-y-8 gap-x-4">
+                <?php
+                for ($i = 1; $i <= 9; $i++):
+                    $estDebloque = ($niveauActuel >= $i);
+                    ?>
+                    <div class="flex flex-col items-center">
+                        <?php if ($estDebloque): ?>
+                            <div class="w-16 h-16 flex items-center justify-center">
+                                <img src="../../IMG/badges/badge<?= $i ?>.svg">
+                            </div>
+                            <p class="mt-2 text-black font-bold text-sm text-center">Niveau <?= $i ?></p>
+                        <?php else: ?>
+                            <div class="w-16 h-16 bg-gray-300 rounded-2xl flex items-center justify-center opacity-50">
+                                <span class="text-gray-500 text-xl">🔒</span>
+                            </div>
+                            <p class="mt-2 text-gray-400 font-medium text-sm text-center">Badge <?= $i ?></p>
+                        <?php endif; ?>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
     </section>
 
     <?php include("../../composants/nav.php"); ?>
