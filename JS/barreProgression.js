@@ -1,12 +1,18 @@
 const PointsUtilisateur = document.querySelector(".js-points-utilisateur");
 const PointsPalier = document.querySelector(".js-points-palier");
-const BarreProgression = document.querySelector(".js-barre-progression ");
+const BarreProgression = document.querySelector(".js-barre-progression");
 
-PointsPalier.dataset.palier = PointsPalier.dataset.palier.replaceAll("/", "");
+function majBarre(utilisateur, prochainPalier) {
 
-let progression = PointsUtilisateur.dataset.progression;
-let palier = PointsPalier.dataset.palier;
+    // Nettoie la valeur récupérée pour garger que le chiffre
+    let palierValue = prochainPalier.dataset.palier.toString().replaceAll("/", "");
+    prochainPalier.dataset.palier = palierValue;
+    
+    let progression = parseFloat(utilisateur.dataset.progression);
+    let palier = parseFloat(palierValue);
+    
+    let pourcentage = (progression * 100) / palier;
+    BarreProgression.style.width = Math.floor(pourcentage) + "%";
+}
 
-pourcentage = (progression * 100) / palier;
-
-BarreProgression.style.width = Math.floor(pourcentage) + "%";
+majBarre(PointsUtilisateur, PointsPalier);
