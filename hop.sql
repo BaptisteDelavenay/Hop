@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 20 mars 2026 à 10:02
+-- Généré le : ven. 20 mars 2026 à 15:34
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -29,13 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `badge` (
   `id` int(11) NOT NULL,
+  `chemin` varchar(255) NOT NULL,
   `nom` varchar(150) NOT NULL,
-  `description` text DEFAULT NULL,
-  `type_condition` enum('missions','points','streak','classement_mensuel') DEFAULT NULL,
-  `valeur_condition` int(11) DEFAULT NULL,
-  `est_temporaire` tinyint(1) DEFAULT 0,
-  `duree_jour` int(11) DEFAULT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `badge`
+--
+
+INSERT INTO `badge` (`id`, `chemin`, `nom`, `description`) VALUES
+(3, 'IMG/badges/badge1.svg', 'Niveau 1', 'Vous avez atteint le niveau 1 !'),
+(4, 'IMG/badges/badge2.svg', 'Niveau 2', 'Vous avez atteint le niveau 2 !'),
+(5, 'IMG/badges/badge3.svg', 'Niveau 3', 'Vous avez atteint le niveau 3 !'),
+(6, 'IMG/badges/badge4.svg', 'Niveau 4', 'Vous avez atteint le niveau 4 !'),
+(7, 'IMG/badges/badge5.svg', 'Niveau 5', 'Vous avez atteint le niveau 5 !'),
+(8, 'IMG/badges/badge6.svg', 'Niveau 6', 'Vous avez atteint le niveau 6 !'),
+(9, 'IMG/badges/badge7.svg', 'Niveau 7', 'Vous avez atteint le niveau 7 !'),
+(10, 'IMG/badges/badge8.svg', 'Niveau 8', 'Vous avez atteint le niveau 8 !'),
+(11, 'IMG/badges/badge9.svg', 'Niveau 9', 'Vous avez atteint le niveau 9 !');
 
 -- --------------------------------------------------------
 
@@ -132,11 +144,11 @@ INSERT INTO `mission_assign` (`id`, `user_id`, `mission_id`, `date_assignation`,
 (22, 22, 5, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (23, 22, 1, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (24, 22, 6, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(28, 44, 10, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
-(29, 44, 5, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
-(30, 44, 9, '2026-03-19', NULL, 'validee', NULL, NULL, NULL, 1),
-(31, 22, 6, '2026-03-20', NULL, 'validee', NULL, NULL, NULL, 1),
-(32, 22, 9, '2026-03-20', NULL, 'validee', NULL, NULL, NULL, 1),
+(28, 44, 10, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(29, 44, 5, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(30, 44, 9, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(31, 22, 6, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(32, 22, 9, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (33, 22, 2, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
@@ -167,7 +179,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 37, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
+(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 10100, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
 (23, 'Dupont', 'Jean', 'j.dupont@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 518, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (24, 'Martin', 'Alice', 'a.martin@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 692, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (25, 'Lefebvre', 'Thomas', 't.lefebvre@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 907, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
@@ -257,7 +269,7 @@ ALTER TABLE `user_badge`
 -- AUTO_INCREMENT pour la table `badge`
 --
 ALTER TABLE `badge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
