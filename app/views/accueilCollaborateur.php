@@ -34,7 +34,7 @@
     <header class="w-full pt-10 p-4 mb-24 flex items-start justify-between">
 
         <div class="flex items-start">
-            <div class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center"><img class="h-full w-full scale-110 object-cover" src="<?= $pdp ?>" alt=""></div>
+            <a href="profilCollaborateur.php" class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center active:scale-90 transition-all"><img class="h-full w-full scale-110 object-cover" src="<?= $pdp ?>" alt=""></a>
             <div class="ml-4">
                 <h3 class="text-white text-xl">Bonjour, Bienvenue</h3>
                 <h2 class="text-white text-4xl font-bold"><?= $_SESSION['collaborateur_prenom'] ?></h2>
@@ -46,7 +46,7 @@
         </div>
     </header>
 
-    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl min-h-dvh absolute">
+    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl absolute h-250">
 
         <!-- div Streak -->
         <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -mt-20">
@@ -140,6 +140,15 @@
             </div>
         </div>
         <?php endforeach; ?>
+
+        <section>
+
+            <h2 class="mt-10 text-4xl font-extrabold">L'objectif de Hop</h2>
+
+            <p>L'objectif de Hop est de vous accompagner dans votre démarche RSE. Hop ne décerne pas cette certification mais vous permez d'obtenir les informations nécessaires pour obtenir cette Certifcation RSE tout en étant ludique.</p>
+
+        </section>
+
     </section>
 
     </section>
