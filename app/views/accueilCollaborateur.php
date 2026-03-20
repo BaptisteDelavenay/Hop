@@ -12,6 +12,7 @@
 
         include "../../connexionBDD/connexionBDD.php";
         include "../actions/missions.php";
+        include "../actions/niveau.php";
 
         if ($_SESSION['session_collaborateur']!='OK') {
             // header("Location: ../../compte/views/connexion.php");
@@ -53,12 +54,12 @@
             <!-- Container niv et barre de progression -->
             <div class="mb-6">
                 <div class="flex items-end justify-between">
-                    <p class="text-gray-500 text-xl">niv. <b class="text-black text-5xl font-bold">16</b></p>
-                    <p class="text-lg text-gray-500"><b class="text-black font-bold">300</b>/400pts</p>
+                    <p class="text-gray-500 text-xl">niv. <b class="text-black text-5xl font-bold"><?= $niveauActuel ?></b></p>
+                    <p data-palier="<?= $seuil ?>" class="js-points-palier text-lg text-gray-500"><b data-progression="<?= $ptsProgression ?>" class="js-points-utilisateur text-black font-bold"><?= $ptsProgression ?> </b><?= $seuil ?>pts</p>
                 </div>
                 <!-- barre de progression -->
                 <div class="w-full h-4 rounded-lg border-1 border-gray-300 overflow-hidden">
-                    <div class="w-50 h-full bg-hop-vert"></div>
+                    <div class="js-barre-progression h-full bg-hop-vert"></div>
                 </div>
             </div>
 
@@ -173,8 +174,10 @@
         </div>
     </div>
 
-    <script src="../../JS/modal.js"></script>   
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <script src="../../JS/validationMission.js"></script>
+    <script src="../../JS/modal.js"></script> 
+    <script src="../../JS/barreProgression.js"></script>  
+
 </body>
 </html>
