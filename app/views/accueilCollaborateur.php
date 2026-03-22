@@ -32,6 +32,7 @@
         $pdp = $infosUser["photo_profil"];
     ?>
 
+    <!-- Header avec photo de profil et nom -->
     <header class="w-full pt-10 p-4 mb-24 flex items-start justify-between">
 
         <div class="flex items-start">
@@ -47,7 +48,7 @@
         </div>
     </header>
 
-    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl absolute h-250">
+    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl absolute h-350">
 
         <!-- div Streak -->
         <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -mt-20">
@@ -72,7 +73,7 @@
                     </div>
                     <p class="mt-2 text-sm text-gray-600 font-medium">Mes badges</p>
                 </div>
-                <!-- Bouton -->
+                <!-- Bouton voir le profil -->
                 <div>
                     <a href="profilCollaborateur.php"><button class="flex gap-2 items-center bg-gradient-to-tr from-hop-violet to-violet-400 px-5 py-2 rounded-4xl text-white font-bold active:scale-90 transition-all">Voir le profil<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></button></a>
                 </div>
@@ -84,71 +85,93 @@
         <!-- Missions du jour -->
         
         <section class="flex gap-4 flex-col mt-4">
-        <?php foreach ($missions as $mission): 
-           
-            // Changer la couleur en fonction de la difficulté    
-            $diff = strtolower($mission["difficulte"]); 
-            
-            switch ($diff) {
-                case 'difficile':
-                    $bgBadge = "bg-red-100";
-                    $textBadge = "text-red-600";
-                    break;
-                case 'moyenne':
-                    $bgBadge = "bg-orange-100";
-                    $textBadge = "text-orange-600";
-                    break;
-                default: 
-                    $bgBadge = "bg-[#A3D400]/14";
-                    $textBadge = "text-hop-vert";
-                    break;
-            }
+            <?php foreach ($missions as $mission): 
 
-            $estValidee = ($mission['statut'] == 'validee'); 
-    
-            // Prépare les classes css du boutton en fonction du status de la mission
-            if ($estValidee) {
-                $classesBouton = "js-button-valider border border-hop-violet p-4 rounded-full";
-                $disabled = "disabled";
-                $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6030E1" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>';
-            } else {
-                $classesBouton = "js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all";
-                $disabled = "";
-                $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>';
-            }
-        ?>
-        
-        <div id="<?= $mission['id'] ?>" class="w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl">
-            <div>
-                <div>
-                    <p class="text-2xl font-bold"><?= $mission["titre"] ?></p>
-                    <p class="text-md"><?= $mission["description"] ?></p>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <span class="<?= $bgBadge ?> <?= $textBadge ?> font-bold px-4 py-1 rounded-lg text-sm">
-                        <?= ucfirst($mission["difficulte"]) ?>
-                    </span>
+                // Changer la couleur en fonction de la difficulté    
+                $diff = strtolower($mission["difficulte"]); 
+
+                switch ($diff) {
+                    case 'difficile':
+                        $bgBadge = "bg-red-100";
+                        $textBadge = "text-red-600";
+                        break;
+                    case 'moyenne':
+                        $bgBadge = "bg-orange-100";
+                        $textBadge = "text-orange-600";
+                        break;
+                    default: 
+                        $bgBadge = "bg-[#A3D400]/14";
+                        $textBadge = "text-hop-vert";
+                        break;
+                }
+
+                $estValidee = ($mission['statut'] == 'validee'); 
                     
-                    <span class="js-nombre-points bg-hop-vert font-bold text-white px-4 py-1 rounded-lg text-sm">
-                        <?= "+".$mission["points_base"]."pts" ?>
-                    </span>
+                // Prépare les classes css du boutton en fonction du status de la mission
+                if ($estValidee) {
+                    $classesBouton = "js-button-valider border border-hop-violet p-4 rounded-full";
+                    $disabled = "disabled";
+                    $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6030E1" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>';
+                } else {
+                    $classesBouton = "js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all";
+                    $disabled = "";
+                    $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>';
+                }
+            ?>
+
+            <div id="<?= $mission['id'] ?>" class="w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl">
+                <div>
+                    <div>
+                        <p class="text-2xl font-bold"><?= $mission["titre"] ?></p>
+                        <p class="text-md"><?= $mission["description"] ?></p>
+                    </div>
+                    <div class="mt-4 flex gap-2">
+                        <span class="<?= $bgBadge ?> <?= $textBadge ?> font-bold px-4 py-1 rounded-lg text-sm">
+                            <?= ucfirst($mission["difficulte"]) ?>
+                        </span>
+
+                        <span class="js-nombre-points bg-hop-vert font-bold text-white px-4 py-1 rounded-lg text-sm">
+                            <?= "+".$mission["points_base"]."pts" ?>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <button <?= $disabled; ?> data-id="<?= $mission['id'] ?>" data-points="<?= $mission['points_base'] ?>" class="<?= $classesBouton ?>">
+                        <?= $icone; ?>
+                    </button>
                 </div>
             </div>
-            <div>
-                <button <?= $disabled; ?> data-id="<?= $mission['id'] ?>" data-points="<?= $mission['points_base'] ?>" class="<?= $classesBouton ?>">
-                    <?= $icone; ?>
-                </button>
+            <?php endforeach; ?>
+
+            
+
+    </section>
+
+    <!-- Section progression -->
+    <section class="">
+        <h2 class="mt-10 mb-4 text-4xl font-extrabold">Progression</h2>
+            <div class="flex items-center justify-between gap-4">
+            <!-- CO2 -->
+            <div class="bg-hop-violet/20 w-full rounded-3xl p-5 flex flex-col gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 stroke-hop-violet"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
+                <p class="text-md text-gray-600"><b>CO2 économisé</b> (collaborateur)</p>
+                <h2 class="text-4xl font-extrabold text-hop-violet">24.4kg</h2>
+            </div>
+            <!-- RSE -->
+            <div class="bg-hop-vert/30 w-full rounded-3xl p-4 flex flex-col gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 stroke-[#6E8F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
+                <p class="text-md text-gray-600"><b>Certification RSE</b> (entreprise)</p>
+                <h2 class="text-4xl font-extrabold text-[#6E8F00]">79.4%</h2>
             </div>
         </div>
-        <?php endforeach; ?>
+    </section>
+    
+    <!-- Section a propos -->
+    <section>
 
-        <section>
+        <h2 class="mt-10 mb-4 text-4xl font-extrabold">L'objectif de Hop</h2>
 
-            <h2 class="mt-10 text-4xl font-extrabold">L'objectif de Hop</h2>
-
-            <p>L'objectif de Hop est de vous accompagner dans votre démarche RSE. Hop ne décerne pas cette certification mais vous permez d'obtenir les informations nécessaires pour obtenir cette Certifcation RSE tout en étant ludique.</p>
-
-        </section>
+        <p>L'objectif de Hop est de vous accompagner dans votre démarche RSE. Hop ne décerne pas cette certification mais vous permez d'obtenir les informations nécessaires pour obtenir cette Certifcation RSE tout en étant ludique.</p>
 
     </section>
 
@@ -156,6 +179,7 @@
 
     <?php include("../../composants/nav.php"); ?>
 
+    <!-- Div paramètre du compte -->
     <div class="js-CompteModal items-center justify-center top-0 left-0 h-full w-full bg-black/60 p-4 pt-60 fixed hidden">
         <div class="bg-white h-auto rounded-2xl flex flex-col p-4 gap-4">
             <div class="js-closeModal">
