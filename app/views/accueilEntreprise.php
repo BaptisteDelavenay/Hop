@@ -15,7 +15,7 @@
     include "../../connexionBDD/connexionBDD.php";
 
     if ($_SESSION['session_entreprise'] != 'OK') {
-        echo "erreur de session";
+        header("Location: ../../compte/views/connexion.php");
     }
 
     // Récupérer les infos de l’entreprise

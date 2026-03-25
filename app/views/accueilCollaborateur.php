@@ -16,8 +16,7 @@
         include "../actions/niveau.php";
 
         if ($_SESSION['session_collaborateur']!='OK') {
-            // header("Location: ../../compte/views/connexion.php");
-            echo "erreur de session";
+            header("Location: ../../compte/views/connexion.php");
         };
 
         // Récupère toutes les infos concernant le compte connecté
