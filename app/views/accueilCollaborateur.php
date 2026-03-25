@@ -86,7 +86,7 @@
         <!-- Missions du jour -->
         
         <section class="flex gap-4 flex-col mt-4">
-            <?php foreach ($missions as $mission): 
+            <?php foreach ($missionsJournalieres as $mission): 
 
                 // Changer la couleur en fonction de la difficulté    
                 $diff = strtolower($mission["difficulte"]); 
@@ -113,14 +113,16 @@
                     $classesBouton = "js-button-valider border border-hop-violet p-4 rounded-full";
                     $disabled = "disabled";
                     $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#6030E1" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>';
+                    $divMission = "w-full h-auto bg-hop-violet/10 border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl";
                 } else {
                     $classesBouton = "js-button-valider bg-gradient-to-tr from-hop-violet to-violet-400 p-4 rounded-full shadow-lg active:scale-90 transition-all";
                     $disabled = "";
                     $icone = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>';
+                    $divMission = "w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl";
                 }
             ?>
 
-            <div id="<?= $mission['id'] ?>" class="w-full h-auto bg-white border border-gray-300 flex items-center justify-between py-4 px-6 rounded-3xl">
+            <div id="<?= $mission['id'] ?>" class="<?= $divMission ?>">
                 <div>
                     <div>
                         <p class="text-2xl font-bold"><?= $mission["titre"] ?></p>
@@ -213,7 +215,7 @@
             <!-- Question -->
             <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
                 <button onclick="toggleAccordion(this)" class="flex items-center justify-between w-full p-6 text-left cursor-pointer focus:outline-none">
-                    <span class="font-bold text-slate-900">Quel est le rôle de Hop ?</span>
+                    <span class="font-bold text-slate-900">Qu'est ce que la certification RSE ?</span>
                     <svg class="size-5 text-slate-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                 </button>
 

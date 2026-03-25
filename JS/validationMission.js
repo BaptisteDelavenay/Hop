@@ -27,7 +27,10 @@ document.querySelectorAll(".js-button-valider").forEach((btn) => {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
+              let missionDiv = btn.closest('.w-full.bg-white');
               // Mise à jour du bouton
+              missionDiv.classList.remove("bg-white")
+              missionDiv.classList.add("bg-hop-violet/10")
               btn.disabled = true;
               btn.classList.remove(
                 "bg-gradient-to-tr",
