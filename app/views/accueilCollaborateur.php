@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop - Collaborateur</title>
     <link href="../../ASSETS/dist/output.css" rel="stylesheet">
+
 </head>
-<body class="bg-hop-violet min-h-dvh">
+<body class="bg-hop-violet min-h-dvh flex flex-col">
     <?php
         session_start();
 
@@ -48,7 +49,7 @@
         </div>
     </header>
 
-    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl absolute h-350">
+    <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl pb-40">
 
         <!-- div Streak -->
         <div class="bg-white border border-gray-300 rounded-2xl px-4 py-6 relative -mt-20">
@@ -155,23 +156,74 @@
             <div class="bg-hop-violet/20 w-full rounded-3xl p-5 flex flex-col gap-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 stroke-hop-violet"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
                 <p class="text-md text-gray-600"><b>CO2 économisé</b> (collaborateur)</p>
-                <h2 class="js-counter text-4xl font-extrabold text-hop-violet" data-target="24.4">24.4kg</h2>
+                <h2 class="js-counter text-4xl font-extrabold text-hop-violet" data-target="24.4" data-unit="kg">24.4</h2>
             </div>
             <!-- RSE -->
             <div class="bg-hop-vert/30 w-full rounded-3xl p-4 flex flex-col gap-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8 stroke-[#6E8F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></svg>
                 <p class="text-md text-gray-600"><b>Certification RSE</b> (entreprise)</p>
-                <h2 class="js-counter text-4xl font-extrabold text-[#6E8F00]" data-target="79.4">79.4%</h2>
+                <h2 class="js-counter text-4xl font-extrabold text-[#6E8F00]" data-target="79.4"data-unit="%">79.4%</h2>
             </div>
         </div>
     </section>
     
     <!-- Section a propos -->
     <section>
+        <h2 class="mt-10 mb-4 text-4xl font-extrabold">A propos de Hop</h2>
+        <div class=" flex flex-col gap-2">
+            <!-- Question -->
+            <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="flex items-center justify-between w-full p-6 text-left cursor-pointer focus:outline-none">
+                    <span class="font-bold text-slate-900">Quel est le rôle de Hop ?</span>
+                    <svg class="size-5 text-slate-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
 
-        <h2 class="mt-10 mb-4 text-4xl font-extrabold">L'objectif de Hop</h2>
+                <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Question -->
+            <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="flex items-center justify-between w-full p-6 text-left cursor-pointer focus:outline-none">
+                    <span class="font-bold text-slate-900">Qui délivre la certification RSE ?</span>
+                    <svg class="size-5 text-slate-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
 
-        <p>L'objectif de Hop est de vous accompagner dans votre démarche RSE. Hop ne décerne pas cette certification mais vous permez d'obtenir les informations nécessaires pour obtenir cette Certifcation RSE tout en étant ludique.</p>
+                <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Question -->
+            <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="flex items-center justify-between w-full p-6 text-left cursor-pointer focus:outline-none">
+                    <span class="font-bold text-slate-900">Les missions sont-elles obligatoires ?</span>
+                    <svg class="size-5 text-slate-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+
+                <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Question -->
+            <div class="border border-slate-200 rounded-lg bg-white overflow-hidden">
+                <button onclick="toggleAccordion(this)" class="flex items-center justify-between w-full p-6 text-left cursor-pointer focus:outline-none">
+                    <span class="font-bold text-slate-900">Quel est le rôle de Hop ?</span>
+                    <svg class="size-5 text-slate-500 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+
+                <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
+                    <div class="overflow-hidden">
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
 
@@ -203,6 +255,8 @@
     <script src="../../JS/modal.js"></script> 
     <script src="../../JS/barreProgression.js"></script> 
     <script src="../../JS/compteur.js"></script> 
+    <script src="../../JS/accordeon.js"></script>
+
 
 </body>
 </html>

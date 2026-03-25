@@ -1,5 +1,7 @@
 const animateCounter = (el) => {
-    const target = +el.getAttribute('data-target'); 
+    const target = +el.getAttribute('data-target');
+    const unit = el.getAttribute('data-unit'); 
+    
     const duration = 1000; 
     const stepTime = 10; 
     const totalSteps = duration / stepTime;
@@ -10,10 +12,12 @@ const animateCounter = (el) => {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            el.innerText = target.toLocaleString()+"%";
+            // Utilisation de la variable unit ici
+            el.innerText = target.toLocaleString() + " " + unit;
             clearInterval(timer);
         } else {
-            el.innerText = Math.floor(current).toLocaleString()+"%";
+            // Et ici pour l'animation
+            el.innerText = Math.floor(current).toLocaleString() + " " + unit;
         }
     }, stepTime);
 };
