@@ -5,53 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hop - Entreprise</title>
     <link href="../../ASSETS/dist/output.css" rel="stylesheet">
-
 </head>
-<body>
 
-    <?php
-        include "../../connexionBDD/connexionBDD.php";
+<body class="bg-hop-violet min-h-dvh flex flex-col">
 
-        session_start();
+<?php
+    session_start();
 
-        if ($_SESSION['session_entreprise']!='OK') {
-            // header("Location: ../../compte/views/connexion.php");
-            echo "erreur de session";
-        };
+    include "../../connexionBDD/connexionBDD.php";
 
-        // Récupère toutes les infos concernant le compte connecté
-        $selectEntreprise = "SELECT * FROM `entreprise` WHERE entreprise.id = :id;";
-        $Entreprise = $db->prepare($selectEntreprise);
-        $Entreprise->execute(array(
-            'id'=>$_SESSION["entreprise_id"]
-        ));
+    if ($_SESSION['session_entreprise'] != 'OK') {
+        echo "erreur de session";
+    }
 
-        $infosEntreprise = $Entreprise->fetch(PDO::FETCH_ASSOC);
+    // Récupérer les infos de l’entreprise
+    $selectEntreprise = "SELECT * FROM entreprise WHERE id = :id;";
+    $req = $db->prepare($selectEntreprise);
+    $req->execute([
+        'id' => $_SESSION['entreprise_id']
+    ]);
 
-        // Récupère le lien de la photo de profil
-        $pdp = $infosEntreprise["photo_profil"];
-    ?>
+    $entreprise = $req->fetch(PDO::FETCH_ASSOC);
 
-    <h1>Bienvenue sur l'accueil du compte entreprise !</h1>
-    <img class="w-20" src="<?= $pdp ?>" alt="">
-    <a href="../../compte/actions/deconnexion.php">Deconnexion</a>
+    // stats temp (à modifier et ajouter d'autres stats, nécessaire d'avoir le "missions_completees" dans la bdd qui augmente à chaque mission réalisée)
+    $selectUsers = "SELECT COUNT(*) FROM user WHERE entreprise_id = :entreprise_id";
+    $reqUsers = $db->prepare($selectUsers);
+    $reqUsers->execute([
+        'entreprise_id' => $_SESSION['entreprise_id']
+    ]);
+    $nbUsers = $reqUsers->fetchColumn();
+
+    $selectMissions = "SELECT SUM(missions_completees) FROM user WHERE entreprise_id = :entreprise_id";
+    $reqMissions = $db->prepare($selectMissions);
+    $reqMissions->execute([
+        'entreprise_id' => $_SESSION['entreprise_id']
+    ]);
+
+    $nbMissions = $reqMissions->fetchColumn();
 
 
-    <?php
-    
-        $selectUserEntreprise = "SELECT user.id, user.prenom, user.nom FROM `user` INNER JOIN `entreprise` ON user.entreprise_id = entreprise.id WHERE entreprise.id = :id;";
-        $userEntreprise = $db->prepare($selectUserEntreprise);
-        $userEntreprise->execute(array(
-            'id'=>$_SESSION["entreprise_id"]
-        ));
+?>
+<!-- HEADER -->
+<header class="w-full pt-10 p-4 flex justify-between items-center text-white">
+    <h1 class="text-xl font-bold">
+        <?php echo $entreprise['nom'] ?? "Entreprise"; ?>
+    </h1>
+</header>
 
-        $users = $userEntreprise->fetchAll(PDO::FETCH_ASSOC);
-    
-        echo "<pre>";
-        print_r($users);
-        echo "</pre>";
+<main class="flex-1 bg-white rounded-t-3xl p-6 mt-6">
 
-    ?>
-    
+    <h2 class="text-2xl font-bold mb-6">Tableau de bord</h2>
+
+    <div class="space-y-4">
+
+        <!-- Nombre d'utilisateurs -->
+        <div class="bg-gray-100 p-4 rounded-xl flex justify-between items-center">
+            <span>Nombre de Collaborateurs :</span>
+            <span class="font-bold"><?php echo $nbUsers; ?></span>
+        </div>
+
+        <!-- Missions réalisées -->
+        <div class="bg-gray-100 p-4 rounded-xl flex justify-between items-center">
+            <span>Missions réalisées :</span>
+            <span class="font-bold"><?php echo $nbMissions; ?></span>
+        </div>
+
+    </div>
+
+    <!-- BOUTON ACCÈS LISTE -->
+    <div class="mt-8">
+        <a href="listeUtilisateurEntreprise.php" 
+           class="block bg-hop-vert text-white text-center py-3 rounded-xl font-semibold">
+            Voir les collaborateurs
+        </a>
+    </div>
+
+        <!-- BOUTON ACCÈS RECAP -->
+    <div class="mt-8">
+        <a href="recapEntreprise.php" 
+           class="block bg-hop-vert text-white text-center py-3 rounded-xl font-semibold">
+            Voir le récapitulatif
+        </a>
+    </div>
+
+</main>
+
+<!-- NAVBAR (composant existant) -->
+<?php include "../../composants/navEntreprise.php"; ?>
+
 </body>
 </html>
