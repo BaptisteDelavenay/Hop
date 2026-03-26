@@ -1,7 +1,6 @@
 let input = document.getElementById("inpuntName");
 
 input.addEventListener("input", function(){
-    // console.log(this.value)
     fetch("../../app/actions/rechercheDynamique.php",{
         method:"POST",
         headers: {
@@ -10,7 +9,6 @@ input.addEventListener("input", function(){
         body:`input=${this.value}`
     }).then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let listeUtilisateurs = document.getElementById("listeUtilisateurs");
         listeUtilisateurs.innerHTML="";
         if(Array.isArray(data)){
