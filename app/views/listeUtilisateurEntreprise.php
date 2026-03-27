@@ -41,7 +41,7 @@
 </header>
 
 <!-- LISTE -->
- <p id="aucunResultat" class="px-4"></p>
+<p id="aucunResultat" class="px-4"></p>
 
 <main id="listeUtilisateurs" class="flex-1 px-4 mt-4 space-y-4 pb-40">
 

@@ -13,6 +13,7 @@
     session_start();
 
     include "../../connexionBDD/connexionBDD.php";
+    include "../actions/nbMissionEntreprise.php";
 
     if ($_SESSION['session_entreprise'] != 'OK') {
         header("Location: ../../compte/views/connexion.php");
@@ -67,7 +68,7 @@
         <!-- Missions réalisées -->
         <div class="bg-gray-100 p-4 rounded-xl flex justify-between items-center">
             <span>Missions réalisées :</span>
-            <span class="font-bold"><?php echo $nbMissions; ?></span>
+            <span class="font-bold"><?php echo $countMission; ?></span>
         </div>
 
     </div>

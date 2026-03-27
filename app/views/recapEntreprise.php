@@ -68,3 +68,8 @@
 
 </body>
 </html>
+
+
+<!-- Requete sql pour sélectionner le nombre de mission validées par entreprise -->
+<!-- SELECT COUNT(mission_assign.id) FROM mission_assign INNER JOIN user ON user.id = mission_assign.user_id WHERE user.entreprise_id = 18 AND mission_assign.statut="validee";
+ -->
