@@ -12,12 +12,13 @@
 <?php
     session_start();
 
+    if (!isset($_SESSION['session_entreprise']) || $_SESSION['session_entreprise'] !== 'OK') {
+        header("Location: ../../compte/views/connexion.php");
+        exit;
+    }
+
     include "../../connexionBDD/connexionBDD.php";
     include "../actions/nbMissionEntreprise.php";
-
-    if ($_SESSION['session_entreprise'] != 'OK') {
-        header("Location: ../../compte/views/connexion.php");
-    }
 
     // Récupérer les infos de l’entreprise
     $selectEntreprise = "SELECT * FROM entreprise WHERE id = :id;";
