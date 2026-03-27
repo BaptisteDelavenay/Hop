@@ -233,13 +233,13 @@
     <?php include("../../composants/nav.php"); ?>
 
     <!-- Div paramètre du compte -->
-    <div class="js-CompteModal items-center justify-center top-0 left-0 h-full w-full bg-black/60 p-4 pt-60 fixed hidden">
+    <div class="js-CompteModal items-center justify-center top-0 left-0 h-full w-full bg-black/60 p-4 pt-60 fixed hidden z-100000">
         <div class="bg-white h-auto rounded-2xl flex flex-col p-4 gap-4">
             <div class="js-closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="size-6 float-right"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
             </div>
             <div class="h-full flex flex-col items-start justify-between gap-6 mb-4 pl-2">
-                <a href="" class="flex items-center gap-2">
+                <a href="profilCollaborateur.php" class="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
                     <p class="text-2xl font-regular font-bold">Profil utilisateur</p>
                 </a>
