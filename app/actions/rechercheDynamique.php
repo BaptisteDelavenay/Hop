@@ -4,7 +4,7 @@
 
     $input = $_POST["input"]."%";
 
-    $selectResult = "SELECT * FROM user WHERE prenom LIKE :search OR nom LIKE :search LIMIT 10";
+    $selectResult = "SELECT * FROM user WHERE prenom LIKE :search OR nom LIKE :search";
     $result = $db->prepare($selectResult);
     $result->execute([
         'search' => $input

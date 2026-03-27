@@ -41,9 +41,9 @@
 </header>
 
 <!-- LISTE -->
- <p id="aucunResultat"></p>
+ <p id="aucunResultat" class="px-4"></p>
 
-<main id="listeUtilisateurs" class="flex-1 px-4 mt-4 space-y-4">
+<main id="listeUtilisateurs" class="flex-1 px-4 mt-4 space-y-4 pb-40">
 
 
 <?php foreach($users as $user): ?>
@@ -56,8 +56,7 @@
 
 
             <!-- Avatar -->
-            <div class="w-12 h-12 bg-black rounded-full"></div>
-
+            <img class="w-12 h-12 rounded-full flex items-center justify-center scale-110 object-cover" src="<?= $user["photo_profil"] ?>" alt="">
             <div>
                 <p class="font-semibold">
                     <?php echo $user['nom'], " ", $user['prenom'] ?? "John Doe"; ?>
