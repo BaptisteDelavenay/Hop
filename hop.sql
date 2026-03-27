@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 20 mars 2026 à 15:34
+-- Généré le : ven. 27 mars 2026 à 15:05
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -74,7 +74,7 @@ CREATE TABLE `entreprise` (
 
 INSERT INTO `entreprise` (`id`, `nom`, `secteur_activite`, `email`, `password`, `code_unique`, `photo_profil`, `total_points`, `niveau_arene`, `role`) VALUES
 (17, 'Apple', 'Informatique', 'admin@apple.com', '$2y$10$EIPfZdne5vGw57/a8/nM3u71SbPRujy/.siOnd8tKNlqSM2puGA9q', 'HFHR', '../../uploads/6e60c6788fb3823e8ba5ce7d523a9f1d.jpg', 0, 1, 'entreprise'),
-(18, 'Google', 'Informatique', 'admin@google.com', '$2y$10$yrK7amrqufhcn8GQ9FWJq.2Qg/nZd2J.Hv39w9ylkNxlK1ByOoI1y', 'AVOJ', '../../uploads/131b3beac165e955d712c357c332614d.png', 0, 1, 'entreprise');
+(18, 'Google', 'Informatique', 'admin@google.com', '$2y$10$yrK7amrqufhcn8GQ9FWJq.2Qg/nZd2J.Hv39w9ylkNxlK1ByOoI1y', 'AVOJ', '../../uploads/google.png', 0, 1, 'entreprise');
 
 -- --------------------------------------------------------
 
@@ -89,24 +89,35 @@ CREATE TABLE `mission` (
   `points_base` int(11) NOT NULL,
   `difficulte` enum('facile','moyenne','difficile') NOT NULL,
   `type_preuve` enum('aucune','photo','texte') DEFAULT 'aucune',
-  `active` tinyint(1) DEFAULT 1
+  `active` tinyint(1) DEFAULT 1,
+  `frequence` varchar(20) DEFAULT 'journalière'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `mission`
 --
 
-INSERT INTO `mission` (`id`, `titre`, `description`, `points_base`, `difficulte`, `type_preuve`, `active`) VALUES
-(1, 'Extinction totale', 'Éteindre les lumières inutiles.', 10, 'facile', 'aucune', 1),
-(2, 'Zéro veille', 'Éteindre mon écran le soir.', 10, 'facile', 'aucune', 1),
-(3, 'Mail malin', 'Supprimer dix vieux emails.', 15, 'moyenne', 'texte', 1),
-(4, 'Tri sélectif', 'Jeter mes déchets correctement.', 10, 'facile', 'photo', 1),
-(5, 'Escaliers', 'Éviter l\'ascenseur aujourd\'hui.', 20, 'difficile', 'aucune', 1),
-(6, 'Gourde attitude', 'Utiliser une gourde réutilisable.', 10, 'facile', 'photo', 1),
-(7, 'Chauffage éco', 'Baisser le thermostat (19°C).', 15, 'moyenne', 'aucune', 1),
-(8, 'Onglets propres', 'Fermer les onglets inutilisés.', 5, 'facile', 'aucune', 1),
-(9, 'Partage local', 'Donner un objet inutile.', 25, 'difficile', 'photo', 1),
-(10, 'Plante heureuse', 'Arroser une plante verte.', 5, 'facile', 'aucune', 1);
+INSERT INTO `mission` (`id`, `titre`, `description`, `points_base`, `difficulte`, `type_preuve`, `active`, `frequence`) VALUES
+(1, 'Extinction totale', 'Éteindre les lumières inutiles.', 10, 'facile', 'aucune', 1, 'journaliere'),
+(2, 'Zéro veille', 'Éteindre mon écran le soir.', 10, 'facile', 'aucune', 1, 'journaliere'),
+(3, 'Mail malin', 'Supprimer dix vieux emails.', 15, 'moyenne', 'texte', 1, 'journaliere'),
+(4, 'Tri sélectif', 'Jeter mes déchets correctement.', 10, 'facile', 'photo', 1, 'journaliere'),
+(5, 'Escaliers', 'Éviter l\'ascenseur aujourd\'hui.', 20, 'difficile', 'aucune', 1, 'journaliere'),
+(6, 'Gourde attitude', 'Utiliser une gourde réutilisable.', 10, 'facile', 'photo', 1, 'journaliere'),
+(7, 'Chauffage éco', 'Baisser le thermostat (19°C).', 15, 'moyenne', 'aucune', 1, 'journaliere'),
+(8, 'Onglets propres', 'Fermer les onglets inutilisés.', 5, 'facile', 'aucune', 1, 'journaliere'),
+(9, 'Partage local', 'Donner un objet inutile.', 25, 'difficile', 'photo', 1, 'journaliere'),
+(10, 'Plante heureuse', 'Arroser une plante verte.', 5, 'facile', 'aucune', 1, 'journaliere'),
+(11, 'Semaine Végé', 'Ne consommer aucune viande pendant 7 jours.', 120, 'difficile', 'aucune', 1, 'hebdomadaire'),
+(12, '100% Mobilité douce', 'Venir au travail sans voiture solo toute la semaine.', 150, 'difficile', 'aucune', 1, 'hebdomadaire'),
+(13, 'Zéro Plastique', 'N’utiliser aucune bouteille ou contenant jetable.', 100, 'moyenne', 'aucune', 1, 'hebdomadaire'),
+(14, 'Nettoyage Numérique', 'Supprimer 500 emails inutiles ou fichiers lourds.', 80, 'moyenne', 'aucune', 1, 'hebdomadaire'),
+(15, 'Escaliers Uniquement', 'Bannir l’ascenseur au bureau toute la semaine.', 90, 'moyenne', 'aucune', 1, 'hebdomadaire'),
+(16, 'Expert du Tri', 'Vérifier et corriger le tri du bac commun chaque jour.', 110, 'difficile', 'aucune', 1, 'hebdomadaire'),
+(17, 'Zéro Veille', 'Éteindre tous les appareils du bureau chaque soir.', 100, 'moyenne', 'aucune', 1, 'hebdomadaire'),
+(18, 'Repas Locaux', 'Manger uniquement des produits locaux et de saison.', 130, 'difficile', 'aucune', 1, 'hebdomadaire'),
+(19, 'Ambassadeur Hop', 'Parrainer un collègue pour sa première mission.', 100, 'moyenne', 'aucune', 1, 'hebdomadaire'),
+(20, 'Stop Gaspillage', 'Finir tous ses repas sans aucun reste alimentaire.', 90, 'moyenne', 'aucune', 1, 'hebdomadaire');
 
 -- --------------------------------------------------------
 
@@ -132,24 +143,30 @@ CREATE TABLE `mission_assign` (
 --
 
 INSERT INTO `mission_assign` (`id`, `user_id`, `mission_id`, `date_assignation`, `date_validation`, `statut`, `preuve_url`, `preuve_texte`, `points_gagnes`, `multiplicateur`) VALUES
-(13, 22, 4, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(14, 22, 1, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(15, 22, 6, '2026-03-13', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(16, 22, 2, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(17, 22, 9, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(18, 22, 10, '2026-03-14', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(19, 22, 3, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(20, 22, 1, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(21, 22, 7, '2026-03-17', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(22, 22, 5, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(23, 22, 1, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(24, 22, 6, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(28, 44, 10, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(29, 44, 5, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(30, 44, 9, '2026-03-19', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(31, 22, 6, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(32, 22, 9, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(33, 22, 2, '2026-03-20', NULL, 'en_cours', NULL, NULL, NULL, 1);
+(46, 44, 10, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(47, 44, 2, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(48, 44, 5, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(49, 44, 15, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(50, 44, 20, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(51, 44, 18, '2026-03-25', NULL, 'validee', NULL, NULL, NULL, 1),
+(52, 22, 1, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(53, 22, 9, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(54, 22, 7, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(55, 22, 20, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(56, 22, 19, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(57, 22, 13, '2026-03-25', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(58, 22, 9, '2026-03-26', NULL, 'validee', NULL, NULL, NULL, 1),
+(59, 22, 1, '2026-03-26', NULL, 'validee', NULL, NULL, NULL, 1),
+(60, 22, 4, '2026-03-26', NULL, 'validee', NULL, NULL, NULL, 1),
+(61, 22, 12, '2026-03-26', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(62, 22, 20, '2026-03-26', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(63, 22, 18, '2026-03-26', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(64, 22, 4, '2026-03-27', NULL, 'validee', NULL, NULL, NULL, 1),
+(65, 22, 5, '2026-03-27', NULL, 'validee', NULL, NULL, NULL, 1),
+(66, 22, 10, '2026-03-27', NULL, 'validee', NULL, NULL, NULL, 1),
+(67, 22, 18, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(68, 22, 19, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(69, 22, 15, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -179,7 +196,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 10100, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
+(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 535, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
 (23, 'Dupont', 'Jean', 'j.dupont@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 518, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (24, 'Martin', 'Alice', 'a.martin@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 692, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (25, 'Lefebvre', 'Thomas', 't.lefebvre@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 907, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
@@ -200,7 +217,7 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entrepr
 (40, 'Vincent', 'Zoé', 'z.vincent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 499, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (41, 'Fournier', 'Jules', 'j.fournier@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 440, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 50, 0, 0, 0, NULL, '2026-03-19 21:20:39');
+(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 395, 0, 0, 0, NULL, '2026-03-19 21:20:39');
 
 -- --------------------------------------------------------
 
@@ -281,13 +298,13 @@ ALTER TABLE `entreprise`
 -- AUTO_INCREMENT pour la table `mission`
 --
 ALTER TABLE `mission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `mission_assign`
 --
 ALTER TABLE `mission_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT pour la table `user`
