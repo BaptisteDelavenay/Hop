@@ -36,21 +36,21 @@
     <section class="flex justify-evenly pt-10">
         <div class="flex flex-col justify-end items-center gap-2">
             <div class="overflow-hidden flex items-center justify-center rounded-full h-25 w-25"><img class="h-full w-full scale-110 object-cover" src="<?= $userList[1]["photo_profil"] ?>" alt="photo de profil"></div>
-            <p class="text-white font-bold"><?= $userList[1]["prenom"] ?> <?= $userList[1]["nom"] ?></p>
+            <p class="text-white font-bold"><?= isset($userList[1]["prenom"]) ?> <?= isset($userList[1]["nom"]) ?></p>
             <div class="w-25 h-50 bg-gradient-to-t from-hop-violet from-5% via-hop-violet/40 via-5% to-white to-50% text-gray-600 font-bold text-4xl flex justify-center pt-10">
                 2
             </div>
         </div>
         <div class="flex flex-col justify-end items-center gap-2">
             <div class="overflow-hidden flex items-center justify-center rounded-full h-25 w-25"><img class="h-full w-full scale-110 object-cover" src="<?= $userList[0]["photo_profil"] ?>" alt="photo de profil"></div>
-            <p class="text-white font-bold"><?= $userList[0]["prenom"] ?> <?= $userList[0]["nom"] ?></p>
+            <p class="text-white font-bold"><?= isset ($userList[0]["prenom"]) ?> <?= isset($userList[0]["nom"]) ?></p>
             <div class="w-25 h-60 bg-gradient-to-t from-hop-violet from-5% via-hop-violet/40 via-5% to-white to-50% text-amber-400 font-bold text-4xl flex justify-center pt-10">
                 1
             </div>
         </div>
         <div class="flex flex-col justify-end items-center gap-2">
             <div class="overflow-hidden flex items-center justify-center rounded-full h-25 w-25"><img class="h-full w-full scale-110 object-cover" src="<?= $userList[2]["photo_profil"] ?>" alt="photo de profil"></div>
-            <p class="text-white font-bold"><?= $userList[2]["prenom"] ?> <?= $userList[2]["nom"] ?></p>
+            <p class="text-white font-bold"><?= isset($userList[2]["prenom"]) ?> <?= isset($userList[2]["nom"]) ?></p>
             <div class="w-25 h-40 bg-gradient-to-t from-hop-violet from-5% via-hop-violet/40 via-5% to-white to-50% text-amber-700 font-bold text-4xl flex justify-center pt-10">
                 3
             </div>

@@ -16,6 +16,7 @@
 
     include "../../connexionBDD/connexionBDD.php";
     include "../actions/missions.php";
+    include "../actions/streak.php";
 
     if ($_SESSION['session_collaborateur'] != 'OK') {
         // header("Location: ../../compte/views/connexion.php");
@@ -68,16 +69,27 @@
 
     $totalpts = $infosUser["total_points"];
     $niveauActuel = calculerNiveau($totalpts);
+
+    $collaborateurId = $_SESSION["collaborateur_id"];
+    $streakActuelle = checkAndGetStreak($db, $collaborateurId);
     ?>
 
     <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl min-h-screen">
 
         <div class="flex flex-col items-center -mt-20 mb-6">
-            <div class="bg-black w-32 h-32 rounded-full overflow-hidden border-4 border-[#F8F6FF] shadow-lg">
-                <img class="h-full w-full object-cover" src="<?= $pdp ?>" alt="Profil">
+            
+            <div class="relative">
+                <div class="bg-black w-32 h-32 rounded-full overflow-hidden border-4 border-[#F8F6FF] shadow-lg">
+                    <img class="h-full w-full object-cover" src="<?= $pdp ?>" alt="Profil">
+                </div>
+                
+                <div class="absolute bottom-0 right-0 bg-white border-4 border-[#F8F6FF] rounded-full px-3 py-1 flex items-center justify-center shadow-md z-10 gap-1">
+                    <span class="text-lg leading-none">🔥</span>
+                    <span class="text-base font-bold text-orange-500 leading-none"><?= $streakActuelle ?></span>
+                </div>
             </div>
 
-            <div class="text-center mt-3">
+            <div class="text-center mt-4">
                 <h2 class="text-black text-3xl font-bold"><?= $_SESSION['collaborateur_prenom'] ?></h2>
             </div>
 
