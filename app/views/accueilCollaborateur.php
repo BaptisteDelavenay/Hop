@@ -10,14 +10,15 @@
 <body class="bg-hop-violet min-h-dvh flex flex-col">
     <?php
         session_start();
+        
+        if (!isset($_SESSION['session_collaborateur']) || $_SESSION['session_collaborateur'] !== 'OK') {            
+            header("Location: ../../compte/views/connexion.php");
+            exit;
+        };
 
         include "../../connexionBDD/connexionBDD.php";
         include "../actions/missions.php";
         include "../actions/niveau.php";
-
-        if ($_SESSION['session_collaborateur']!='OK') {
-            header("Location: ../../compte/views/connexion.php");
-        };
 
         // Récupère toutes les infos concernant le compte connecté
         $selectUser = "SELECT * FROM `user` WHERE id = :id;";
