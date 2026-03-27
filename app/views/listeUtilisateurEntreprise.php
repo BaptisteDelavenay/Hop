@@ -35,24 +35,28 @@
 
     <!-- BARRE DE RECHERCHE -->
     <div class="bg-gray-100 rounded-xl flex items-center px-4 py-2">
-        <input type="text" placeholder="John Doe" class="bg-transparent outline-none flex-1">
+        <input type="text" id="inpuntName" name="inpuntName" placeholder="John Doe" class="bg-transparent outline-none flex-1">
         🔍
     </div>
 </header>
 
 <!-- LISTE -->
-<main class="flex-1 px-4 mt-4 space-y-4">
+<p id="aucunResultat" class="px-4"></p>
+
+<main id="listeUtilisateurs" class="flex-1 px-4 mt-4 space-y-4 pb-40">
+
 
 <?php foreach($users as $user): ?>
 
     <div class="flex items-center justify-between">
 
+
         <!-- Partie gauche -->
         <div class="flex items-center gap-3">
 
-            <!-- Avatar -->
-            <div class="w-12 h-12 bg-black rounded-full"></div>
 
+            <!-- Avatar -->
+            <img class="w-12 h-12 rounded-full flex items-center justify-center scale-110 object-cover" src="<?= $user["photo_profil"] ?>" alt="">
             <div>
                 <p class="font-semibold">
                     <?php echo $user['nom'], " ", $user['prenom'] ?? "John Doe"; ?>
@@ -78,5 +82,6 @@
 <!-- NAVBAR -->
 <?php include "../../composants/navEntreprise.php"; ?>
 
+<script src="../../JS/recherche.js"></script>
 </body>
 </html>
