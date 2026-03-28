@@ -15,6 +15,7 @@
     include "../../connexionBDD/connexionBDD.php";
     include "../actions/missions.php";
     include "../actions/EntrepriseProgression.php";
+    include "../actions/getFeed.php";
 
     if ($_SESSION['session_collaborateur'] != 'OK') {
         echo "erreur de session";
@@ -42,6 +43,31 @@
             <div class="h-full bg-gradient-to-r from-hop-vert to-green-400 rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(163,230,53,0.5)]" 
                  style="width: <?= $pourcentage ?>%">
             </div>
+        </div>
+
+        <p class="text-white/60 text-[10px] mt-2 uppercase font-bold tracking-widest italic">
+            <?= number_format($pointsCollectifs, 0, '.', ' ') ?> points collectifs
+        </p>
+
+    </div>
+
+    <div class="w-full h-[350px] shrink-0 flex justify-center items-center overflow-hidden z-0 relative">
+        <model-viewer 
+            src="../../uploads/office-10.glb" 
+            alt="Modèle 3D entreprise"
+            auto-rotate 
+            camera-controls 
+            disable-zoom
+            interaction-prompt="none"
+            camera-orbit="0deg 75deg 20m" 
+            min-camera-orbit="auto 75deg 20m"
+            max-camera-orbit="auto 75deg 20m"
+            class="relative -top-15 w-full h-[450px] outline-none"
+            style="--poster-color: transparent;"
+            loading="eager">
+        </model-viewer>
+    </div>
+
     <!-- Section fil d'actualité -->
     <section class="bg-[#F8F6FF] p-4 w-full rounded-t-3xl pb-40 mt-10 flex flex-col flex-1 gap-10">
     <h2 class="mt-10 text-3xl font-extrabold text-center">Fil d'actualité</h2>
@@ -78,42 +104,13 @@
             <!-- description du post -->
             <p><?= $post["description"] ?></p>
         </div>
+            </div>
+
         
-        <!-- <p class="text-white/60 text-[10px] mt-2 uppercase font-bold tracking-widest italic">
-            <?= number_format($pointsCollectifs, 0, '.', ' ') ?> points collectifs
-        </p> -->
-    </div>
-
-    <div class="w-full h-[350px] shrink-0 flex justify-center items-center overflow-hidden z-0 relative">
-        <model-viewer 
-            src="../../uploads/office-10.glb" 
-            alt="Modèle 3D entreprise"
-            auto-rotate 
-            camera-controls 
-            disable-zoom
-            interaction-prompt="none"
-            /* On bloque l'angle vertical à 75deg pour interdire le haut/bas */
-            /* On règle la distance à 5m pour l'effet "Gros plan" */
-            camera-orbit="0deg 75deg 20m" 
-            min-camera-orbit="auto 75deg 20m"
-            max-camera-orbit="auto 75deg 20m"
-            class="relative -top-15 w-full h-[450px] outline-none"
-            style="--poster-color: transparent;"
-            loading="eager">
-        </model-viewer>
-    </div>
-
-
-
-    <div class="h-20 w-20 rounded-full bg-hop-vert fixed right-10 bottom-30 flex items-center justify-center z-30">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 stroke-green-900">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-        </svg>
-    </div>
     <?php endforeach; ?>
 
     </section>
-
+    
     <a href="nouveauPost.php" class="h-20 w-20 rounded-full bg-hop-vert fixed right-10 bottom-30 flex items-center justify-center shadow-lg active:scale-90 transition-all duration-75">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 stroke-green-900"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
     </a>
