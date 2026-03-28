@@ -5,6 +5,7 @@
     include("./niveau.php");
     include("./streak.php");
 
+    // Passe la mission de "en cours" à "validée"
     $updateStatus = "UPDATE mission_assign SET statut = 'validee' WHERE id = :idMission;";
     $status = $db->prepare($updateStatus);
     $status->execute(array(
@@ -12,6 +13,7 @@
 
     ));
 
+    // Ajoute le nombre de points gagné au total de l'utilisateur
     $updatePoints = "UPDATE user SET total_points = total_points+:points WHERE id = :idUser;";
     $points = $db->prepare($updatePoints);
     $points->execute(array(
@@ -19,6 +21,7 @@
         "idUser" => $_SESSION["collaborateur_id"]
     ));
 
+    // Si les 2 requetes sont faites on envoie les données sous forme d'objet json 
     if ($status && $points) {
 
         $nouvelleStreak = incrementStreak($db, $_SESSION["collaborateur_id"]);
