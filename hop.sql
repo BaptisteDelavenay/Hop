@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 27 mars 2026 à 15:05
+-- Généré le : sam. 28 mars 2026 à 21:00
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -75,6 +75,30 @@ CREATE TABLE `entreprise` (
 INSERT INTO `entreprise` (`id`, `nom`, `secteur_activite`, `email`, `password`, `code_unique`, `photo_profil`, `total_points`, `niveau_arene`, `role`) VALUES
 (17, 'Apple', 'Informatique', 'admin@apple.com', '$2y$10$EIPfZdne5vGw57/a8/nM3u71SbPRujy/.siOnd8tKNlqSM2puGA9q', 'HFHR', '../../uploads/6e60c6788fb3823e8ba5ce7d523a9f1d.jpg', 0, 1, 'entreprise'),
 (18, 'Google', 'Informatique', 'admin@google.com', '$2y$10$yrK7amrqufhcn8GQ9FWJq.2Qg/nZd2J.Hv39w9ylkNxlK1ByOoI1y', 'AVOJ', '../../uploads/google.png', 0, 1, 'entreprise');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `feed`
+--
+
+CREATE TABLE `feed` (
+  `id` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `nb_likes` int(11) NOT NULL DEFAULT 0,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `feed`
+--
+
+INSERT INTO `feed` (`id`, `id_utilisateur`, `description`, `image`, `nb_likes`, `date`) VALUES
+(1, 22, 'mef\r\n', '../../uploads/feed/b2fc83124723bd42c613b0338fad66c2.jpg', 0, '2026-03-28 17:34:07'),
+(3, 22, 'Bah super la polution...', '../../uploads/feed/3752de78438033c487948e7ebd860e03.jpg', 0, '2026-03-28 18:00:52'),
+(4, 45, 'J\'adore l\'IAAA', '../../uploads/feed/6ebdf1eec07f3c542707079f314ea3ee.jpg', 0, '2026-03-28 18:02:43');
 
 -- --------------------------------------------------------
 
@@ -166,7 +190,19 @@ INSERT INTO `mission_assign` (`id`, `user_id`, `mission_id`, `date_assignation`,
 (66, 22, 10, '2026-03-27', NULL, 'validee', NULL, NULL, NULL, 1),
 (67, 22, 18, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (68, 22, 19, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(69, 22, 15, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1);
+(69, 22, 15, '2026-03-27', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(70, 22, 8, '2026-03-28', NULL, 'validee', NULL, NULL, NULL, 1),
+(71, 22, 2, '2026-03-28', NULL, 'validee', NULL, NULL, NULL, 1),
+(72, 22, 4, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(73, 22, 11, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(74, 22, 15, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(75, 22, 12, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(76, 45, 8, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(77, 45, 7, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(78, 45, 5, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(79, 45, 19, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(80, 45, 13, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(81, 45, 14, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -196,7 +232,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 535, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
+(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 550, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
 (23, 'Dupont', 'Jean', 'j.dupont@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 518, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (24, 'Martin', 'Alice', 'a.martin@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 692, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (25, 'Lefebvre', 'Thomas', 't.lefebvre@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 907, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
@@ -217,7 +253,8 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entrepr
 (40, 'Vincent', 'Zoé', 'z.vincent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 499, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (41, 'Fournier', 'Jules', 'j.fournier@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 440, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
 (42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 395, 0, 0, 0, NULL, '2026-03-19 21:20:39');
+(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 395, 0, 0, 0, NULL, '2026-03-19 21:20:39'),
+(45, 'Jawish', 'Jan', 'janjawish@gmail.com', '$2y$10$ETWpXhYW59Hhj2hx3vV.S.vgCxwF/xZIAit2kW4u9SkDJkl6szEPy', 'collaborateur', 18, '../../uploads/f1e1b507d72b1809dab9c55149f8642b.jpg', 0, 0, 0, 0, NULL, '2026-03-28 19:02:02');
 
 -- --------------------------------------------------------
 
@@ -247,6 +284,12 @@ ALTER TABLE `badge`
 -- Index pour la table `entreprise`
 --
 ALTER TABLE `entreprise`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `feed`
+--
+ALTER TABLE `feed`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -295,6 +338,12 @@ ALTER TABLE `entreprise`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT pour la table `feed`
+--
+ALTER TABLE `feed`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `mission`
 --
 ALTER TABLE `mission`
@@ -304,13 +353,13 @@ ALTER TABLE `mission`
 -- AUTO_INCREMENT pour la table `mission_assign`
 --
 ALTER TABLE `mission_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT pour la table `user_badge`
