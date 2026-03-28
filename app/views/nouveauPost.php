@@ -19,7 +19,7 @@
         <p class="text-center mb-2 text-2xl font-bold mt-8">Quoi de neuf ?</p>
         <p class="text-center text-gray-500 font-medium mt-4 mb-6">Postez une information utile pour gagner des points bonus !</p>
 
-        <form action="../actions/creationCompteEntreprise.php" enctype="multipart/form-data" method="POST" class="mt-4 flex flex-col space-y-1 w-full ">
+        <form action="../actions/post.php" enctype="multipart/form-data" method="POST" class="mt-4 flex flex-col space-y-1 w-full ">
 
             <p for="email" class="text-xs font-bold uppercase text-gray-600 mb-1.5 ml-1 tracking-widest-1">Choisissez votre image</p>
             <label for="image" class="cursor-pointer mb-6 w-full">
