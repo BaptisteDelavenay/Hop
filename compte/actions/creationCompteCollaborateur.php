@@ -73,6 +73,7 @@
         // Connexion automatique après inscription
         $_SESSION['session_collaborateur'] = 'OK';
         $_SESSION['collaborateur_id'] = $db->lastInsertId();
+        $_SESSION['entreprise_collaborateur_id'] = $account['entreprise_collaborateur_id'];
         $_SESSION["collaborateur_prenom"] = $prenom;
 
         header("Location: ../../app/views/accueilCollaborateur.php");

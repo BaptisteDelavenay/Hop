@@ -66,14 +66,14 @@
             </div>
 
             <div class="flex items-start justify-between">
-                <div class="flex flex-col items-center"> 
+                <a href="profilCollaborateur.php" class="flex flex-col items-center active:scale-95 transition-all"> 
                     <div class="flex -space-x-5"> 
-                        <img class="relative z-10 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 1">
-                        <img class="relative z-20 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 2">
-                        <img class="relative z-30 h-10 w-10 rounded-full border-1 border-white bg-white" src="../../IMG/badges/badge1.svg" alt="Badge 3">
+                        <img class="relative z-10 h-10 w-10 rounded-full border-1 border-white bg-white shadow-sm" src="../../IMG/badges/badge1.svg" alt="Badge 1">
+                        <img class="relative z-20 h-10 w-10 rounded-full border-1 border-white bg-white shadow-sm" src="../../IMG/badges/badge1.svg" alt="Badge 2">
+                        <img class="relative z-30 h-10 w-10 rounded-full border-1 border-white bg-white shadow-sm" src="../../IMG/badges/badge1.svg" alt="Badge 3">
                     </div>
-                    <p class="mt-2 text-sm text-gray-600 font-medium">Mes badges</p>
-                </div>
+                    <p class="mt-2 text-sm text-gray-600 font-bold hover:text-hop-violet transition-colors">Mes badges</p>
+                </a>
                 <!-- Bouton voir le profil -->
                 <div>
                     <a href="profilCollaborateur.php"><button class="flex gap-2 items-center bg-gradient-to-tr from-hop-violet to-violet-400 px-5 py-2 rounded-4xl text-white font-bold active:scale-90 transition-all">Voir le profil<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg></button></a>
