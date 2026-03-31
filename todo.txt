@@ -20,11 +20,11 @@ Collaborateur
 
 
 Entreprise
-    bug affichage accueil entreprise
-    bug affichage liste collaborateur
+    * bug affichage accueil entreprise
+    * bug affichage liste collaborateur
     suppresion utilisateur dans la liste 
     page classement entreprise
-    bouton export des données 
+    * bouton export des données 
     intégration modèle 3D
 
 
