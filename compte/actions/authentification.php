@@ -24,7 +24,7 @@
         if($account['role'] === $userType){
             $_SESSION['session_'.$userType]='OK';
             $_SESSION[$userType.'_id'] = $account['id'];
-            $_SESSION['entreprise_collaborateur_id'] = $account['entreprise_collaborateur_id'];
+            $_SESSION['collaborateur_entreprise_id'] = $account['entreprise_id'];
             $_SESSION[$userType.'_nom']=$account['nom'];
             $_SESSION[$userType.'_prenom'] = (isset($account['prenom'])) ? $account['prenom'] : NULL;
             // Choisi le fichier vers lequel l'utilisateur sera renvoyé en fonction de son rôle
