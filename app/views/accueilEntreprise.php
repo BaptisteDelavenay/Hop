@@ -42,10 +42,10 @@
 <header class="w-full pt-10 p-4 flex items-start justify-between">
 
     <div class="flex items-start">
-        <a href="profilCollaborateur.php" class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center active:scale-90 transition-all"><img class="h-full w-full scale-110 object-cover" src="<?= $entreprise["photo_profil"] ?>" alt=""></a>
+        <a href="profilCollaborateur.php" class="bg-black w-18 h-18 rounded-full overflow-hidden flex items-center justify-center active:scale-90 transition-all"><img class="h-full w-full scale-110 object-cover" src="<?= isset($entreprise["photo_profil"]) ? $entreprise["photo_profil"] : "../../uploads/default.png" ?>" alt=""></a>
         <div class="ml-4">
             <h3 class="text-white text-xl">Bonjour, Bienvenue</h3>
-            <h2 class="text-white text-4xl font-bold"><?= $_SESSION['entreprise_nom'] ?></h2>
+            <h2 class="text-white text-4xl font-bold"><?= $_SESSION['entreprise_nom']; ?></h2>
         </div>
     </div>
 
@@ -111,7 +111,6 @@
         </div>
     </div>
 
-    <!-- NAVBAR (composant existant) -->
     <?php include "../../composants/navEntreprise.php"; ?>
 
     <script src="../../JS/modal.js"></script>
