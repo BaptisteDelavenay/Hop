@@ -75,7 +75,7 @@
         $_SESSION['collaborateur_id'] = $db->lastInsertId();
         $_SESSION['entreprise_collaborateur_id'] = $account['entreprise_collaborateur_id'];
         $_SESSION["collaborateur_prenom"] = $prenom;
-
+        $_SESSION['collaborateur_entreprise_id'] = $account['entreprise_id'];
         header("Location: ../../app/views/accueilCollaborateur.php");
         exit();
 

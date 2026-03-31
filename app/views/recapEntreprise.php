@@ -35,7 +35,7 @@
     </h1>
 </header>
 
-<main class="flex-1 bg-white rounded-t-3xl p-6 mt-6">
+<main class="flex-1 bg-white rounded-t-3xl p-6 mt-6 pb-40">
 
     <div class="space-y-4">
 

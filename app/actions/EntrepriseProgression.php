@@ -1,5 +1,5 @@
 <?php
-$entrepriseID = $_SESSION["entreprise_id"];
+$entrepriseID = $_SESSION["collaborateur_entreprise_id"];
 
 // 1. Récupération des données brutes
 $sqlEntreprise = "SELECT COUNT(id) as nb_employes, SUM(total_points) as points_collectifs FROM `user` WHERE entreprise_id = :id";
