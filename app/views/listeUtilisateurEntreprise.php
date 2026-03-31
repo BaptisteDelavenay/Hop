@@ -45,7 +45,6 @@
 
 <main id="listeUtilisateurs" class="flex-1 px-4 mt-4 space-y-4 pb-40">
 
-
 <?php foreach($users as $user): ?>
 
     <div class="flex items-center justify-between">
@@ -69,8 +68,13 @@
         </div>
 
         <!-- Menu -->
-        <div>
-            ⋮
+        <div class="flex items-center justify-center">
+            <button type="button" 
+                    class="btn-delete text-gray-400 hover:text-red-500 text-2xl font-bold transition-all active:scale-90"
+                    data-id="<?= $user['id'] ?>" 
+                    data-name="<?= $user['prenom'] . ' ' . $user['nom'] ?>">
+                ⋮
+            </button>
         </div>
 
     </div>
@@ -82,6 +86,9 @@
 <!-- NAVBAR -->
 <?php include "../../composants/navEntreprise.php"; ?>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../../JS/recherche.js"></script>
+<script src="../../JS/supprimerUtilisateur.js"></script>
+
 </body>
 </html>
