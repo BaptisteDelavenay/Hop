@@ -41,7 +41,7 @@
         ));
 
         // On redirige vers le feed
-        header("Location: ../../app/views/EntrepriseCollaborateur.php");
+        header("Location: ../../app/views/entrepriseCollaborateur.php");
         exit();
     }
     else{
