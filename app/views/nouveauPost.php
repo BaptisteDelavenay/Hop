@@ -12,7 +12,7 @@
 
     <!-- texte de bienvenue et logo -->
     <header class="relative flex items-center justify-center py-8 px-6">
-        <a href="EntrepriseCollaborateur.php" class="absolute left-6 p-2 rounded-full bg-white/10 active:scale-95 transition-all">
+        <a href="entrepriseCollaborateur.php" class="absolute left-6 p-2 rounded-full bg-white/10 active:scale-95 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
@@ -43,7 +43,7 @@
 
                     <img id="img" class="h-full w-full object-cover hidden absolute inset-0" src="" alt="Aperçu">
                 </div>
-                <input type="file" id="image" name="image" class="hidden">
+                <input type="file" id="image" name="image" class="hidden" required>
             </label>
 
             <div class="w-full flex flex-col mb-6">

@@ -117,7 +117,7 @@ $infosUser = $User->fetch(PDO::FETCH_ASSOC);
                 <!-- description -->
                 <div class="flex items-center gap-2">
                     <!-- Nom prenom -->
-                    <p class="font-bold"><?= $post["prenom"] ?>     <?= $post["nom"] ?></p>
+                    <p class="font-bold"><?= $post["prenom"] ?> <?= $post["nom"] ?></p>
                     <p> - </p>
                     <!-- description du post -->
                     <p><?= $post["description"] ?></p>

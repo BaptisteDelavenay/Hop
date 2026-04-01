@@ -158,7 +158,7 @@
             <div class="bg-hop-violet/20 w-full rounded-3xl p-5 flex flex-col gap-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8 stroke-hop-violet"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></svg>
                 <p class="text-md text-gray-600"><b>CO2 économisé</b> (collaborateur)</p>
-                <h2 class="js-counter text-4xl font-extrabold text-hop-violet" data-target="24.4" data-unit="kg">24.4</h2>
+                <h2 class="js-counter text-4xl font-extrabold text-hop-violet" data-target="24" data-unit="kg">24</h2>
             </div>
             <!-- RSE -->
             <div class="bg-hop-vert/30 w-full rounded-3xl p-4 flex flex-col gap-4">
@@ -182,7 +182,7 @@
 
                 <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
                     <div class="overflow-hidden">
-                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">C'est un levier d'engagement qui transforme la stratégie RSE en actions concrètes et quotidiennes pour les salariés via la gamification.</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
 
                 <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
                     <div class="overflow-hidden">
-                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">La certification est délivrée par des tiers de confiance indépendants (type AFNOR, B Lab ou Ecovadis) après audit des performances de l'entreprise.</p>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@
 
                 <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
                     <div class="overflow-hidden">
-                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Les missions reposent sur l'adhésion volontaire et la cohésion d'équipe, évitant ainsi l'aspect contraignant d'une directive descendante.</p>
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@
 
                 <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out">
                     <div class="overflow-hidden">
-                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">Cras sed lectus placerat, accumsan neque vitae, suscipit odio. Praesent viverra vulputate pretium. Vestibulum eget urna et tellus congue dignissim eget eu elit.</p>
+                        <p class="p-6 pt-0 text-slate-600 leading-relaxed">C'est la contribution des entreprises aux enjeux du développement durable, validée par un label qui atteste de leur impact social et environnemental positif.</p>
                     </div>
                 </div>
             </div>

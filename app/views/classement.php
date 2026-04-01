@@ -71,11 +71,11 @@
                 };
             ?>
             <div class="flex items-center gap-2 ">
-                <p class="<?= $couleur ?> text-3xl mr-4"><?= $i ?>.</p>
+                <p class="<?= $couleur ?> text-2xl mr-2"><?= $i ?>.</p>
                 <div class="flex items-center justify-center overflow-hidden h-15 w-15 rounded-full"><img class="h-full w-full scale-110 object-cover" src="<?= $user["photo_profil"] ?>" alt="photo de profil"></div>
                 <div>
-                    <p class="text-2xl font-bold"><?= $user["prenom"] ?> <?= $user["nom"] ?></p>
-                    <p class="text-hop-vert"><?= $user["total_points"] ?> points</p>
+                    <p class="text-xl font-bold"><?= $user["prenom"] ?> <?= $user["nom"] ?></p>
+                    <p class="text-hop-vert text-sm"><?= $user["total_points"] ?> points</p>
                 </div>
             </div>
         <?php $i+=1; endforeach; ?>
