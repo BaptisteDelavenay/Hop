@@ -1,3 +1,23 @@
+Bienvenue sur l'application web HOP !
+
+Vous pouvez vous connectez à 2 comptes différents pour tester l'application : 
+
+Compte Collaborateur
+
+        Login : bdelavenay78@gmail.com
+        Mdp : admin
+
+        Login : corvomat@gmail.com
+        Mdp : admin
+
+Compte Entreprise
+
+        Login : admin@google.com
+        Mdp : admin
+
+Lien vers TPweb : https://delavbap.tpweb.univ-rouen.fr/Hop/
+
+
 /!\ INSTALLER LE PROJET /!\
 
 Pour que tailwind s'applique correctement, il faut saisir les 2 commandes suivantes dans la console de l'IDE :
