@@ -1,5 +1,2 @@
 ErrorDocument 404 https://delavbap.tpweb.univ-rouen.fr/Hop/erreurs/404.php
 ErrorDocument 403 https://delavbap.tpweb.univ-rouen.fr/Hop/erreurs/403.php
-
-RewriteEngine On
-RewriteRule (^|/)actions(/|$) - [F,L]
