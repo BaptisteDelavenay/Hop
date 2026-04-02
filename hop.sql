@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 28 mars 2026 à 21:00
+-- Généré le : jeu. 02 avr. 2026 à 16:41
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -202,7 +202,40 @@ INSERT INTO `mission_assign` (`id`, `user_id`, `mission_id`, `date_assignation`,
 (78, 45, 5, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (79, 45, 19, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
 (80, 45, 13, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
-(81, 45, 14, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1);
+(81, 45, 14, '2026-03-28', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(82, 22, 10, '2026-03-30', NULL, 'validee', NULL, NULL, NULL, 1),
+(83, 22, 8, '2026-03-30', NULL, 'validee', NULL, NULL, NULL, 1),
+(84, 22, 3, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(85, 22, 16, '2026-03-30', NULL, 'validee', NULL, NULL, NULL, 1),
+(86, 22, 13, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(87, 22, 14, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(88, 44, 6, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(89, 44, 7, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(90, 44, 5, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(91, 44, 15, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(92, 44, 20, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(93, 44, 12, '2026-03-30', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(94, 22, 4, '2026-03-31', NULL, 'validee', NULL, NULL, NULL, 1),
+(95, 22, 1, '2026-03-31', NULL, 'validee', NULL, NULL, NULL, 1),
+(96, 22, 10, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(97, 22, 17, '2026-03-31', NULL, 'validee', NULL, NULL, NULL, 1),
+(98, 22, 11, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(99, 22, 18, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(100, 44, 5, '2026-03-31', NULL, 'validee', NULL, NULL, NULL, 1),
+(101, 44, 9, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(102, 44, 1, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(103, 44, 16, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(104, 44, 17, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(105, 44, 12, '2026-03-31', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(106, 22, 5, '2026-04-01', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(107, 22, 8, '2026-04-01', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(108, 22, 1, '2026-04-01', NULL, 'validee', NULL, NULL, NULL, 1),
+(109, 44, 5, '2026-04-01', NULL, 'validee', NULL, NULL, NULL, 1),
+(110, 44, 4, '2026-04-01', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(111, 44, 10, '2026-04-01', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(112, 22, 8, '2026-04-02', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(113, 22, 3, '2026-04-02', NULL, 'en_cours', NULL, NULL, NULL, 1),
+(114, 22, 9, '2026-04-02', NULL, 'en_cours', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -224,37 +257,34 @@ CREATE TABLE `user` (
   `streak` int(11) DEFAULT 0,
   `streak_max` int(11) DEFAULT 0,
   `derniere_mission_date` date DEFAULT NULL,
-  `date_inscription` datetime DEFAULT current_timestamp()
+  `date_inscription` datetime DEFAULT current_timestamp(),
+  `badge_7_atteint` tinyint(4) NOT NULL,
+  `badge_14_atteint` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`) VALUES
-(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 550, 0, 0, 0, NULL, '2026-03-13 14:18:57'),
-(23, 'Dupont', 'Jean', 'j.dupont@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 518, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(24, 'Martin', 'Alice', 'a.martin@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 692, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(25, 'Lefebvre', 'Thomas', 't.lefebvre@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 907, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(26, 'Bernard', 'Chloé', 'c.bernard@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 557, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(27, 'Petit', 'Lucas', 'l.petit@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 865, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(28, 'Robert', 'Emma', 'e.robert@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 751, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(29, 'Richard', 'Hugo', 'h.richard@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 163, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(30, 'Durand', 'Manon', 'm.durand@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 262, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(31, 'Dubois', 'Nathan', 'n.dubois@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 721, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(32, 'Moreau', 'Léa', 'l.moreau@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 917, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(33, 'Laurent', 'Enzo', 'e.laurent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 522, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(34, 'Simon', 'Sarah', 's.simon@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 659, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(35, 'Michel', 'Louis', 'l.michel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 729, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(36, 'Garcia', 'Jade', 'j.garcia@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 669, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(37, 'David', 'Arthur', 'a.david@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 158, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(38, 'Bertrand', 'Inès', 'i.bertrand@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 485, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(39, 'Roux', 'Gabriel', 'g.roux@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 951, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(40, 'Vincent', 'Zoé', 'z.vincent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 499, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(41, 'Fournier', 'Jules', 'j.fournier@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 440, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24'),
-(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 395, 0, 0, 0, NULL, '2026-03-19 21:20:39'),
-(45, 'Jawish', 'Jan', 'janjawish@gmail.com', '$2y$10$ETWpXhYW59Hhj2hx3vV.S.vgCxwF/xZIAit2kW4u9SkDJkl6szEPy', 'collaborateur', 18, '../../uploads/f1e1b507d72b1809dab9c55149f8642b.jpg', 0, 0, 0, 0, NULL, '2026-03-28 19:02:02');
+INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `role`, `entreprise_id`, `photo_profil`, `total_points`, `missions_completees`, `streak`, `streak_max`, `derniere_mission_date`, `date_inscription`, `badge_7_atteint`, `badge_14_atteint`) VALUES
+(22, 'Delavenay', 'Baptiste', 'bdelavenay78@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEXx51JV6rmM.', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 840, 0, 7, 0, '2026-04-01', '2026-03-18 14:18:57', 1, 0),
+(27, 'Petit', 'Lucas', 'l.petit@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 865, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(28, 'Robert', 'Emma', 'e.robert@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 751, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(29, 'Richard', 'Hugo', 'h.richard@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 163, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(31, 'Dubois', 'Nathan', 'n.dubois@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 721, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(32, 'Moreau', 'Léa', 'l.moreau@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 917, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(33, 'Laurent', 'Enzo', 'e.laurent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 522, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(34, 'Simon', 'Sarah', 's.simon@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 659, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(35, 'Michel', 'Louis', 'l.michel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 729, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(36, 'Garcia', 'Jade', 'j.garcia@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 669, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(37, 'David', 'Arthur', 'a.david@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 158, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(38, 'Bertrand', 'Inès', 'i.bertrand@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 485, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(39, 'Roux', 'Gabriel', 'g.roux@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 951, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(40, 'Vincent', 'Zoé', 'z.vincent@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 499, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(41, 'Fournier', 'Jules', 'j.fournier@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 440, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(42, 'Morel', 'Louna', 'l.morel@gmail.com', '$2y$10$cJX1nX10Z7i7CNIkbmjS9eIKqiTuhoiUqVD2lfIzZEX', 'collaborateur', 18, '../../uploads/db472279cc11aafa835153b792a4cfb3.jpg', 606, 0, 0, 0, NULL, '2026-03-13 15:03:24', 0, 0),
+(44, 'Corvol', 'Math&eacute;o', 'corvomat@gmail.com', '$2y$10$KuxgJ2fGsx5hi87J9PTaCOUmjPmBHr4do7923OAVrla40S2OVEfi.', 'collaborateur', 17, '../../uploads/01a31144f1fc880f5ff32c4985b0209e.jpg', 435, 0, 2, 0, '2026-04-01', '2026-03-19 21:20:39', 0, 0),
+(45, 'Jawish', 'Jan', 'janjawish@gmail.com', '$2y$10$ETWpXhYW59Hhj2hx3vV.S.vgCxwF/xZIAit2kW4u9SkDJkl6szEPy', 'collaborateur', 18, '../../uploads/f1e1b507d72b1809dab9c55149f8642b.jpg', 0, 0, 0, 0, NULL, '2026-03-28 19:02:02', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -353,7 +383,7 @@ ALTER TABLE `mission`
 -- AUTO_INCREMENT pour la table `mission_assign`
 --
 ALTER TABLE `mission_assign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT pour la table `user`
